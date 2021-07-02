@@ -1,5 +1,6 @@
 $(function () {
     var currentTag = '个人生活';
+    var searchKey = '';
     var allArticles = [];
 
     var render_tags = function (tagStr) {
@@ -55,7 +56,20 @@ $(function () {
         return filterArticles;
     };
 
-    var initNav = function () {
+    var filter_articles_by_searchKey = function (articles) {
+        var filterArticles = [];
+        for (var i in articles) {
+            var article = articles[i];
+            if (article['summary'].indexOf(searchKey) >= 0
+                || article['tags'].indexOf(searchKey) >= 0
+                || article['title'].indexOf(searchKey) >= 0) {
+                filterArticles.push(article);
+            }
+        }
+        return filterArticles;
+    };
+
+    var init_nav = function () {
         var allA = $('.nav').find('a');
         allA.click(function () {
             allA.removeClass('select');
@@ -70,8 +84,24 @@ $(function () {
         });
     };
 
+    var init_input = function () {
+        $(".search").on('input', function () {
+            searchKey = $(this).val();
+            var filterArticles;
+            if (searchKey && searchKey !== '') {
+                //根据关键子过滤
+                filterArticles = filter_articles_by_searchKey(allArticles);
+            } else {
+                //根据当前tag过了文章
+                filterArticles = filter_articles_by_currentTag(allArticles);
+            }
+            refresh_articles(filterArticles);
+        });
+    };
+
     var init = function () {
-        initNav();
+        init_nav();
+        init_input();
         //加载所有文章
         load_articles(function (articles) {
             allArticles = articles;
