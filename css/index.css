@@ -197,3 +197,28 @@
     text-align: center;
 }
 
+/*detail*/
+.article-detail {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.article-detail-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2f2f2f;
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.article-detail-content {
+    font-size: 16px;
+    color: #404040;
+}
+
