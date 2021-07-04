@@ -21,19 +21,19 @@
     "title": "徐工的书单",
     "summary": "《深入理解Java虚拟机》周志明、《Java编程思想》Bruce Eckel、《Linux私房菜》鸟哥、《Java并发编程实战》Brian Goetz、董云兰等、《Netty权威指南》李林锋、《Redis设计与实现》黄健宏、《设计模式之禅》秦小波、《MySQL技术内幕》姜承尧、《Effective Java》Joshua Bloch、《深入剖析Tomcat》Budi Kurniawan、Paul Deck、《领域驱动设计》",
     "createTime": "2011-12-29 15:51:49",
-    "tags": "学习笔记,技术类"
+    "tags": "学习笔记"
   },
   {
     "title": "Linux常用命令",
     "summary": "查看磁盘空间[df -h, du -sh *]、top命令top -d 1 （每隔1秒刷新）,top -p 112233（查看指定进程）,top -c（显示整个命令行而不是每个命令）,top 按1监控每个逻辑CPU]、grep命令[-C100 显示匹配中上下行数, -c 统计命中行数, -n 显示行数, -i 查找时不区分大小写]",
     "createTime": "2011-12-29 15:51:49",
-    "tags": "学习笔记,技术类"
+    "tags": "学习笔记,Linux"
   },
   {
     "title": "系统稳定性方法论",
     "summary": "容量、预热、预案、限流",
     "createTime": "2021-07-04 09:28:00",
-    "tags": "学习笔记,技术类"
+    "tags": "学习笔记,稳定性"
   },
   {
     "title": "看荷",
