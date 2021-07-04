@@ -3,6 +3,14 @@
     margin: 0;
 }
 
+code{
+    background-color: #eeeeee;
+    display: inline-block;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
 .font-1 {
     font-size: 18px;
     font-weight: bold;
