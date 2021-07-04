@@ -1,9 +1,9 @@
-# 查看磁盘空间
+## 查看磁盘空间
 ```
 df -h
 du -sh *
 ```
-# top命令
+## top命令
 ```
 top -d 1 //每隔1秒刷新
 ```
@@ -22,7 +22,7 @@ top //按1监控每个逻辑CPU
 
 详细请参考：https://www.cnblogs.com/niuben/p/12017242.html
 
-# grep命令
+## grep命令
 指令说明：
 ```
 -C100 //显示匹配中上下行数
@@ -40,7 +40,7 @@ top //按1监控每个逻辑CPU
 -i //查找时不区分大小写
 ```
 
-# DEMO
+## DEMO
 ```
 grep "xxx" -C2 nodelog.log //匹配查找，并显示命中上下100行
 ```

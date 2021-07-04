@@ -8,7 +8,7 @@ $(function () {
         $('.article-detail-title').html(articleName);
 
         //加载文章内容并渲染
-        $.get('data/article/' + articleName + '/' + articleName + '.md', function (content) {
+        $.get('data/article/content/' + articleName + '/' + articleName + '.md', function (content) {
 
             var rendererMD = new marked.Renderer();
             marked.setOptions({
