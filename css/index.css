@@ -135,6 +135,12 @@
 
 .article-item-title {
     margin-bottom: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.article-item-title:hover {
+    text-decoration: underline;
 }
 
 .article-item-content {
@@ -194,7 +200,8 @@
 
 .copyright {
     line-height: 50px;
-    text-align: center;
+    text-align: right;
+    margin-right: 20px;
 }
 
 /*detail*/
@@ -220,5 +227,6 @@
 .article-detail-content {
     font-size: 16px;
     color: #404040;
+    margin-bottom: 100px;
 }
 

@@ -26,17 +26,18 @@ $(function () {
         var articleList = $('.article-list');
         articleList.html('');
         var template = '<div class="article-item">' +
-            '                <p class="article-item-title font-1">{title}</p>' +
+            '                <a class="article-item-title font-1">{title}</a>' +
             '                <p class="article-item-content font-3">{summary}</p>' +
             '                <div class="article-item-bottom font-4"><p>时间：{createTime}</p>{tags}</div>' +
             '            </div>';
-        var content = render_list(template, articles, function (k, v) {
+        var content = BW.renderList(template, articles, function (k, v) {
             if (k === '{tags}') {
                 return render_tags(v);
             }
             return v;
         });
         articleList.html(content);
+        init_title_click();
     };
 
     var filter_articles_by_currentTag = function (articles) {
@@ -96,6 +97,12 @@ $(function () {
                 filterArticles = filter_articles_by_currentTag(allArticles);
             }
             refresh_articles(filterArticles);
+        });
+    };
+
+    var init_title_click = function () {
+        $('.article-item-title').click(function () {
+            window.open('detail.html?articleName=' + BW.encode(BW.encode($(this).html())));
         });
     };
 
