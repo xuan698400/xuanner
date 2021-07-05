@@ -27,13 +27,13 @@
     "title": "Linux常用命令",
     "summary": "查看磁盘空间[df -h, du -sh *]、top命令top -d 1 （每隔1秒刷新）,top -p 112233（查看指定进程）,top -c（显示整个命令行而不是每个命令）,top 按1监控每个逻辑CPU]、grep命令[-C100 显示匹配中上下行数, -c 统计命中行数, -n 显示行数, -i 查找时不区分大小写]",
     "createTime": "2011-12-29 15:51:49",
-    "tags": "学习笔记,Linux"
+    "tags": "学习笔记,技术类,Linux"
   },
   {
     "title": "系统稳定性方法论",
     "summary": "容量、预热、预案、限流",
     "createTime": "2021-07-04 09:28:00",
-    "tags": "学习笔记,稳定性"
+    "tags": "学习笔记,技术类,稳定性"
   },
   {
     "title": "看荷",
@@ -42,9 +42,15 @@
     "tags": "个人生活,随想"
   },
   {
-    "title": "PHP简单入门",
+    "title": "PHP学习笔记",
     "summary": "PHP基础语法",
     "createTime": "2012-01-06 15:28:51",
-    "tags": "学习笔记,PHP"
+    "tags": "学习笔记,技术类,PHP"
+  },
+  {
+    "title": "MySQL学习笔记",
+    "summary": "一些基础的MySQL命令，已经原理性的东西",
+    "createTime": "2021-07-05 16:10:00",
+    "tags": "学习笔记,技术类,MySQL"
   }
 ]
