@@ -1,0 +1,31 @@
+/*markdown*/
+.article-detail-content code {
+    background-color: #eeeeee;
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border-left: .25em solid #dfe2e5;
+}
+
+.article-detail-content p {
+    margin: 5px 0;
+    line-height: 1.85;
+}
+
+.article-detail-content blockquote {
+    opacity: .6;
+    border-left: .25em solid #dfe2e5;
+    padding: 0 1em;
+    margin-left: 0;
+}
+
+.article-detail-content h1 {
+    margin: 10px 0;
+}
+
+.article-detail-content li {
+    margin: 5px 40px;
+}
+
+/*markdown*/
