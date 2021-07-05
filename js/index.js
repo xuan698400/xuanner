@@ -41,10 +41,6 @@ $(function () {
     };
 
     var filter_articles_by_currentTag = function (articles) {
-        if (currentTag === '首页') {
-            return articles;
-        }
-
         var filterArticles = [];
         for (var i in articles) {
             var article = articles[i];
