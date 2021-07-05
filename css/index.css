@@ -6,8 +6,8 @@
 code{
     background-color: #eeeeee;
     display: inline-block;
-    margin-bottom: 5px;
-    padding: 5px;
+    margin: 5px;
+    padding: 5px 10px;
     border-radius: 5px;
 }
 

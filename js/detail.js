@@ -21,11 +21,11 @@ $(function () {
                 smartLists: true,
                 smartypants: false
             });
-            marked.setOptions({
-                highlight: function (code) {
-                    return hljs.highlightAuto(code).value;
-                }
-            });
+            // marked.setOptions({
+            //     highlight: function (code) {
+            //         return hljs.highlightAuto(code).value;
+            //     }
+            // });
             $('.article-detail-content').html(marked(content));
         });
     };
