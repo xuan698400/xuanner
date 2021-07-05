@@ -1,5 +1,5 @@
 $(function () {
-    var currentTag = '个人生活';
+    var currentTag = '首页';
     var searchKey = '';
     var allArticles = [];
 
@@ -28,7 +28,7 @@ $(function () {
         var template = '<div class="article-item">' +
             '                <a class="article-item-title font-1">{title}</a>' +
             '                <p class="article-item-content font-3">{summary}</p>' +
-            '                <div class="article-item-bottom font-4"><p>时间：{createTime}</p>{tags}</div>' +
+            '                <div class="article-item-bottom font-4"><p>发布时间：{createTime}</p>{tags}</div>' +
             '            </div>';
         var content = BW.renderList(template, articles, function (k, v) {
             if (k === '{tags}') {
@@ -41,6 +41,10 @@ $(function () {
     };
 
     var filter_articles_by_currentTag = function (articles) {
+        if (currentTag === '首页') {
+            return articles;
+        }
+
         var filterArticles = [];
         for (var i in articles) {
             var article = articles[i];
@@ -55,6 +59,12 @@ $(function () {
             }
         }
         return filterArticles;
+    };
+
+    var sort_articles_by_createTime = function (articles) {
+        return articles.sort(function (a, b) {
+            return a.createTime < b.createTime ? 1 : -1
+        });
     };
 
     var filter_articles_by_searchKey = function (articles) {
@@ -115,7 +125,7 @@ $(function () {
             //根据当前tag过了文章
             var filterArticles = filter_articles_by_currentTag(allArticles);
             //更新页面数据
-            refresh_articles(filterArticles);
+            refresh_articles(sort_articles_by_createTime(filterArticles));
         });
     };
 
