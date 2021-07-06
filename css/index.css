@@ -174,6 +174,9 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
+    border: solid 1px #eeeeee;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .aboutme {
@@ -183,7 +186,7 @@
 }
 
 .aboutme img {
-    width: 300px;
+    width: 100%;
 }
 
 .aboutme p {
