@@ -22,7 +22,8 @@ $(function () {
         });
     };
 
-    var refresh_articles = function (articles) {
+    var refresh_articles = function (articlesUnSort) {
+        var articles = sort_articles_by_createTime(articlesUnSort);
         var articleList = $('.article-list');
         articleList.html('');
         var template = '<div class="article-item">' +
@@ -59,6 +60,9 @@ $(function () {
 
     var sort_articles_by_createTime = function (articles) {
         return articles.sort(function (a, b) {
+            console.log(a.createTime);
+            console.log(b.createTime);
+            console.log(a.createTime < b.createTime ? 1 : -1);
             return a.createTime < b.createTime ? 1 : -1
         });
     };
@@ -121,7 +125,7 @@ $(function () {
             //根据当前tag过了文章
             var filterArticles = filter_articles_by_currentTag(allArticles);
             //更新页面数据
-            refresh_articles(sort_articles_by_createTime(filterArticles));
+            refresh_articles(filterArticles);
         });
     };
 
