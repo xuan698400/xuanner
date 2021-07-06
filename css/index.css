@@ -130,7 +130,9 @@
     display: -webkit-flex;
     display: flex;
     flex-direction: column;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: solid 1px #f0f0f0;
 }
 
 .article-item-title {
