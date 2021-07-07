@@ -92,7 +92,48 @@ Article.prototype = {
     }
 };
 
+function Game() {
+    this.games = [];
+}
+
+Game.prototype = {
+    constructor: Game,
+    init: function () {
+        var _this = this;
+        this.loadGames(function () {
+            _this.render();
+            _this.initClick();
+        });
+    },
+    loadGames: function (callback) {
+        var _this = this;
+        $.get('game/game.json', function (games) {
+            _this.games = games;
+            if (callback) {
+                callback();
+            }
+        });
+    },
+    render: function () {
+        var _this = this;
+        var gameItems = $('.game-box-items');
+        gameItems.html('');
+        var template = '<div class="game-box-item" data-url="{openUrl}">' +
+            '                            <img src="{pic}"/>' +
+            '                            <p>{name}</p>' +
+            '                        </div>';
+        var html = BW.renderList(template, _this.games);
+        gameItems.html(html);
+    },
+    initClick: function () {
+        $('.game-box-item').on('click', function () {
+            window.open($(this).data('url'));
+        });
+    }
+};
+
 function IndexPage() {
+    this.game = null;
     this.article = null;
     this.currentTag = '首页';
     this.searchKey = '';
@@ -109,6 +150,9 @@ IndexPage.prototype = {
             _this.initNav();
             _this.initInput();
         });
+        //
+        _this.game = new Game();
+        _this.game.init();
     },
     initNav: function () {
         var _this = this;

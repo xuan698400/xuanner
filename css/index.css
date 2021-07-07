@@ -203,6 +203,50 @@
     margin-top: 10px;
 }
 
+.info-box-item-title {
+    border-bottom: solid 1px #eeeeee;
+    padding-bottom: 10px;
+    font-size: 14px;
+    color: #333333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.info-box-item-text{
+    margin-bottom: 15px;
+
+}
+
+.game-box-items {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.game-box-item {
+    padding: 10px;
+    width: 15%;
+    border: solid 1px #eeeeee;
+    border-radius: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.game-box-item img {
+    width: 100%;
+}
+
+.game-box-item p {
+    font-size: 13px;
+    color: #999;
+    text-align: center;
+}
+
+.game-box-item:hover {
+    background-color: #FFF3EE;
+}
+
 .footer {
     position: fixed;
     left: 0;

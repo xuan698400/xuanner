@@ -1,0 +1,22 @@
+[
+  {
+    "pic": "game/2048/2048.png",
+    "name": "2048",
+    "openUrl": "game/2048/2048.html"
+  },
+  {
+    "pic": "game/mine/mine.png",
+    "name": "扫雷",
+    "openUrl": "game/mine/mine.html"
+  },
+  {
+    "pic": "game/snake/snake.png",
+    "name": "贪吃蛇",
+    "openUrl": "game/snake/snake.html"
+  },
+  {
+    "pic": "game/soduku/soduku.png",
+    "name": "数独",
+    "openUrl": "game/soduku/index.html"
+  }
+]
