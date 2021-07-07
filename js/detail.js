@@ -1,54 +1,78 @@
-$(function () {
+function ArticleDetail() {
+    this.content = '';
+    this.title = '';
+    this.tagsStr = '';
+    this.createTime = '';
+}
 
-    var load_and_refresh_article_detail = function () {
-        //从浏览器地址参数获取文章标题
-        var articleName = BW.decode(BW.decode(BW.getParamFromUrl('articleName', '')));
-        var tags = BW.decode(BW.decode(BW.getParamFromUrl('tags', '')));
-        var createTime = BW.decode(BW.decode(BW.getParamFromUrl('createTime', '')));
-
-        //渲染文章标题
-        $('.article-detail-title').html(articleName);
-        $('.article-detail-info-time').html('发布于：' + createTime);
-        $('.article-detail-info-tags').html(render_tags(tags));
-
-        //加载文章内容并渲染
-        $.get('data/article/content/' + articleName + '/' + articleName + '.md', function (content) {
-
-            var rendererMD = new marked.Renderer();
-            marked.setOptions({
-                renderer: rendererMD,
-                gfm: true,
-                tables: true,
-                breaks: true,
-                pedantic: false,
-                sanitize: false,
-                smartLists: true,
-                smartypants: false
-            });
-            // marked.setOptions({
-            //     highlight: function (code) {
-            //         return hljs.highlightAuto(code).value;
-            //     }
-            // });
-            $('.article-detail-content').html(marked(content));
+ArticleDetail.prototype = {
+    constructor: ArticleDetail,
+    init: function (callback) {
+        var _this = this;
+        _this.title = BW.decode(BW.decode(BW.getParamFromUrl('title', '')));
+        _this.tagsStr = BW.decode(BW.decode(BW.getParamFromUrl('tagsStr', '')));
+        _this.createTime = BW.decode(BW.decode(BW.getParamFromUrl('createTime', '')));
+        _this.loadContent(callback);
+    },
+    loadContent: function (callback) {
+        var _this = this;
+        $.get('data/article/content/' + _this.title + '/' + _this.title + '.md', function (content) {
+            _this.content = content;
+            if (callback) {
+                callback();
+            }
         });
-    };
-
-    var render_tags = function (tagStr) {
-        if (!tagStr) {
+    },
+    getTagsHtml: function () {
+        var _this = this;
+        if (!_this.tagsStr) {
             return '';
         }
-
-        var tags = tagStr.split(',');
-        var result = '';
+        var tags = _this.tagsStr.split(',');
+        var html = '';
         for (var i = 0, n = tags.length; i < n; i++) {
-            result += '<p class="article-item-bottom-tag">' + tags[i] + '</p>';
+            html += '<p class="article-item-bottom-tag">' + tags[i] + '</p>';
         }
-        return result;
-    };
+        return html;
+    },
+    render: function () {
+        var _this = this;
+        //
+        $('.article-detail-title').html(_this.title);
+        $('.article-detail-info-time').html(_this.createTime);
+        $('.article-detail-info-tags').html(_this.getTagsHtml());
+        //
+        var rendererMD = new marked.Renderer();
+        marked.setOptions({
+            renderer: rendererMD,
+            gfm: true,
+            tables: true,
+            breaks: true,
+            pedantic: false,
+            sanitize: false,
+            smartLists: true,
+            smartypants: false
+        });
+        $('.article-detail-content').html(marked(_this.content));
+    }
+};
 
-    var init = function () {
-        load_and_refresh_article_detail();
-    };
-    init();
+function DetailPage() {
+    this.articleDetail = null;
+}
+
+DetailPage.prototype = {
+    constructor: DetailPage,
+    init: function () {
+        var _this = this;
+        _this.articleDetail = new ArticleDetail();
+        _this.articleDetail.init(function () {
+            _this.articleDetail.render();
+        });
+    }
+};
+
+$(function () {
+    var detailPage = new DetailPage();
+    detailPage.init();
 });

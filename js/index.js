@@ -139,7 +139,7 @@ IndexPage.prototype = {
             var tags = BW.encode(BW.encode(article.tags));
             var createTime = BW.encode(BW.encode(article.createTime));
             articleName = BW.encode(BW.encode(articleName));
-            window.open('detail.html?articleName=' + articleName + '&tags=' + tags + '&createTime=' + createTime);
+            window.open('detail.html?title=' + articleName + '&tagsStr=' + tags + '&createTime=' + createTime);
         });
     },
     renderByCurrentTag: function () {
