@@ -41,6 +41,16 @@ $(function () {
         init_title_click();
     };
 
+    var get_articles_by_title = function (title) {
+        for (var i in allArticles) {
+            var article = allArticles[i];
+            if (article.title === title) {
+                return article;
+            }
+        }
+        return null;
+    };
+
     var filter_articles_by_currentTag = function (articles) {
         var filterArticles = [];
         for (var i in articles) {
@@ -60,9 +70,6 @@ $(function () {
 
     var sort_articles_by_createTime = function (articles) {
         return articles.sort(function (a, b) {
-            console.log(a.createTime);
-            console.log(b.createTime);
-            console.log(a.createTime < b.createTime ? 1 : -1);
             return a.createTime < b.createTime ? 1 : -1
         });
     };
@@ -112,7 +119,13 @@ $(function () {
 
     var init_title_click = function () {
         $('.article-item-title').click(function () {
-            window.open('detail.html?articleName=' + BW.encode(BW.encode($(this).html())));
+            var articleName = $(this).html();
+            var article = get_articles_by_title(articleName);
+            var tags = BW.encode(BW.encode(article.tags));
+            var createTime = BW.encode(BW.encode(article.createTime));
+            articleName = BW.encode(BW.encode(articleName));
+
+            window.open('detail.html?articleName=' + articleName + '&tags=' + tags + '&createTime=' + createTime);
         });
     };
 

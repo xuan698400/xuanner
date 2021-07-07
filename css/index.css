@@ -119,6 +119,13 @@
     flex: auto;
 }
 
+.content-single {
+    display: -webkit-flex;
+    display: flex;
+    flex: 0 0 100%;
+    margin-right: 0;
+}
+
 .article-list {
     display: -webkit-flex;
     display: flex;
@@ -161,6 +168,7 @@
     padding: 1px 5px;
     border-radius: 2px;
     margin-left: 5px;
+    font-size: 11px;
 }
 
 .info-box {
@@ -226,7 +234,23 @@
     display: flex;
     width: 100%;
     justify-content: center;
+    margin-bottom: 10px;
+}
+
+.article-detail-info {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
+}
+
+.article-detail-info-time {
+    margin-right: 10px;
+}
+
+.article-detail-info-tags {
+    display: -webkit-flex;
+    display: flex;
 }
 
 .article-detail-content {
