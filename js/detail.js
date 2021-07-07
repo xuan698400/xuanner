@@ -39,7 +39,7 @@ ArticleDetail.prototype = {
         var _this = this;
         //
         $('.article-detail-title').html(_this.title);
-        $('.article-detail-info-time').html(_this.createTime);
+        $('.article-detail-info-time').html('发布于：' + _this.createTime);
         $('.article-detail-info-tags').html(_this.getTagsHtml());
         //
         var rendererMD = new marked.Renderer();
