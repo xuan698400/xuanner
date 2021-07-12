@@ -1,0 +1,89 @@
+<html>
+<head>
+
+    <title>Do You Know HACKER-1</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+<div align="center">
+    <canvas id="myCanvasMatrix" width="500" height="200" style="border:1px solid #c3c3c3;">
+        <!-- <canvas>标签在IE9以下的浏览器中并不被支持 -->
+        Please Upgrade your browser
+    </canvas>
+    <br>
+    <button type="button" id="puse">puse</button>
+    <button type="button" id="run">run</button>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        /*
+            var c2 = document.getElementById("myCanvasMatrix");
+            var ctx2 = c2.getContext("2d");
+            其中 'ctx2' 就等同于下面的 'ctx1'
+        */
+        var ctx1 = $("#myCanvasMatrix").get(0).getContext("2d");
+        /*
+            其中$("").get(0)表示获取内部的DOM对象引用
+            也就是：获取到对象的dom对象后就可以使用对应的dom API
+        */
+        /*
+            getContext() 方法返回一个用于在画布上绘图的环境。
+            Canvas.getContext(contextID);
+            其中contextID参数当前唯一的合法值为'2d'，也就是支持了二维绘图
+            未来可能会支持'3d'这个参数哦~
+        */
+        var Matrix=function(){
+            /*
+                var my_gradient=ctx1.createLinearGradient(0,0,0,170);
+                my_gradient.addColorStop(0,"black");
+                my_gradient.addColorStop(1,"white");
+                ctx1.fillStyle=my_gradient;
+            */
+            ctx1.fillStyle = 'rgba(0,0,0,.07)';
+            /*
+                fillStyle 属性设置或返回用于填充绘画的颜色、渐变或模式。
+                rgba(R,G,B,A)
+                其中'.05'代表阿尔法透明度
+            */
+            ctx1.fillRect(0,0,500,500);
+            /*
+                fillRect() 方法使用 fillStyle 属性所指定的颜色、渐变和模式来填充指定的矩形
+            */
+            ctx1.fillStyle = "#0f0";
+            ctx1.fillText('zhengbin', Math.random()*(500), Math.random()*(500));
+            ctx1.fillText('cnblogs', Math.random()*(500), Math.random()*(500));
+            /*
+                其原理就是不停的产生新的有透明度的背景和要显示的内容，
+                这样新的背景不停的覆盖旧的显示内容
+                新的内容就突显了出来
+            */
+        };
+        runFun();
+        var id;
+        function stopFun(){
+            clearInterval(id);
+        }
+        function runFun(){
+            id = setInterval(Matrix,50);
+            /*
+               setInterval() 定义和用法:
+               setInterval() 方法可按照指定的周期（以毫秒计）来调用函数或计算表达式。
+               setInterval() 方法会不停地调用函数，直到 clearInterval() 被调用或窗口被关闭。由 setInterval() 返回的 ID 值可用作 clearInterval() 方法的参数。
+            */
+        }
+        $("button#puse").click(function() {
+            stopFun();
+        });
+        $("button#run").click(function() {
+            runFun();
+        });
+        
+        
+        $.get('www.buyijiafang.com', function (data) {
+
+        })
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>我的博客</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .page {
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: row;
+            margin: 10px;
+            height: 600px;
+            border: solid 2px #c0c0c0;
+        }
+
+        .page-left {
+            display: -webkit-flex;
+            display: flex;
+            flex: 0 0 600px;
+            border-right: solid 2px #c0c0c0;
+        }
+
+        .page-left textarea {
+            width: 100%;
+            height: 100%;
+            outline: none;
+            resize: none;
+        }
+
+        .page-right {
+            display: -webkit-flex;
+            display: flex;
+            flex: 1 1 auto;
+        }
+    </style>
+</head>
+
+<body>
+<div class="page">
+    <div class="page-left">
+        <textarea id="edit"></textarea>
+    </div>
+    <div class="page-right" id="show"></div>
+</div>
+
+<script>
+    var edit = document.getElementById('edit');
+    edit.addEventListener('input', function () {
+        document.getElementById('show').innerHTML = this.value;
+    });
+</script>
+
+</body>
+
+</html>
