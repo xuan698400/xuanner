@@ -80,10 +80,12 @@ ArticleDetail.prototype = {
             }
             if (level === 2) {
                 var last = nav[nav.length - 1];
-                last.children.push({
-                    title: title.replace(/^#+/, '').replace(/\([^)]*?\)/, ''),
-                    children: []
-                });
+                if (last) {
+                    last.children.push({
+                        title: title.replace(/^#+/, '').replace(/\([^)]*?\)/, ''),
+                        children: []
+                    });
+                }
             }
         });
 
