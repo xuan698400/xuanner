@@ -11,7 +11,6 @@
 # 注释方法
 `//` 本例是 C++ 语法的注释
 `/* xxx */` 本例采用多行的注释方式
-`#` 本例使用 UNIX Shell 语法注释
 
 # 变量类型
 注意：这里引出两个问题，首先PHP变量以$开头，第二PHP语句以;结尾。没有变量的声明，赋值什么，就是什么。
@@ -95,7 +94,8 @@ mysql_select_db("shop");
 单这个语句就可以执行所有的操作了，不同的是传入的语法不一样而已
 ```
 //新增
-$exec="insert into tablename (item1,item2) values ('".$_POST['item1']."',".$_POST['item1'].")"; 
+$exec="insert into tablename (item1,item2) 
+values ('".$_POST['item1']."',".$_POST['item1'].")"; 
 //删除
 $exec="delete from tablename where..."; 
 //修改
@@ -164,11 +164,11 @@ $exec="select * from tablename limit ".($page*10).",10";
 接受文件并保存
 ```
 //接受并保存文件
-$f=&$HTTP_POST_FILES['file'];                		//接受文件
-$dest_dir='uploads';                          		//设定上传目录
-$dest=$dest_dir.'/'.date("ymd")."_".$f['name'];		//我这里设置文件名为日期加上文件名避免重复
-$r=move_uploaded_file($f['tmp_name'],$dest);		//把你上传的文件从临时目录移动到指定目录
-chmod($dest, 0755);									//设定上传的文件的属性(具体什么属性不知道，用时再可以查的)
+$f=&$HTTP_POST_FILES['file'];//接受文件
+$dest_dir='uploads';//设定上传目录
+$dest=$dest_dir.'/'.date("ymd")."_".$f['name'];//我这里设置文件名为日期加上文件名避免重复
+$r=move_uploaded_file($f['tmp_name'],$dest);//把你上传的文件从临时目录移动到指定目录
+chmod($dest, 0755);//设定上传的文件的属性(具体什么属性不知道，用时再可以查的)
 ```
 
 # 发邮件

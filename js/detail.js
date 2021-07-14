@@ -3,6 +3,7 @@ function ArticleDetail() {
     this.title = '';
     this.tagsStr = '';
     this.createTime = '';
+    this.numConvert = [];
 }
 
 ArticleDetail.prototype = {
@@ -53,7 +54,78 @@ ArticleDetail.prototype = {
             smartLists: true,
             smartypants: false
         });
-        $('.article-detail-content').html(marked(_this.content));
+        $('.article-detail-left').html(marked(_this.content));
+    },
+    renderTitle: function () {
+        var _this = this;
+
+        var top = $('.article-detail-title').offset().top;
+        var left = $('.article-detail-left').offset().left;
+        $('.article-detail-nav-wrap').css('top', top).css('left', left + 800);
+
+        var nav = [];
+
+        var index = 1;
+        _this.content.replace(/(#+)[^#][^\n]*?(?:\n)/g, function (match, m1, m2) {
+            let title = match.replace('\n', '');
+            let level = m1.length;
+
+            //只处理一级二级标题
+            if (level === 1) {
+                nav.push({
+                    title: title.replace(/^#+/, '').replace(/\([^)]*?\)/, ''),
+                    children: [],
+                });
+                index++;
+            }
+            if (level === 2) {
+                var last = nav[nav.length - 1];
+                last.children.push({
+                    title: title.replace(/^#+/, '').replace(/\([^)]*?\)/, ''),
+                    children: []
+                });
+            }
+        });
+
+        //渲染
+        var detailNav = $('.article-detail-nav');
+        detailNav.html('');
+        var h1Index = 0;
+        var h2Index = 0;
+        for (var i = 0, n = nav.length; i < n; i++) {
+            var h1Item = nav[i];
+
+            var selectClass = i === 0 ? 'article-detail-nav-select' : '';
+            detailNav.append('<div  data-index="' + h1Index + '" class="article-detail-nav-h article-detail-nav-h1 ' + selectClass + '">' + _this.subText(h1Item.title) + '</div>');
+            h1Index++;
+
+            for (var j = 0, m = h1Item.children.length; j < m; j++) {
+                var h2Item = h1Item.children[j];
+                detailNav.append('<div data-index="' + h2Index + '" class="article-detail-nav-h article-detail-nav-h2">' + _this.subText(h2Item.title) + '</div>');
+                h2Index++;
+            }
+        }
+        _this.addTitleEvent();
+    },
+    addTitleEvent: function () {
+        $('.article-detail-nav-h').on('click', function () {
+            $('.article-detail-nav-h').removeClass('article-detail-nav-select');
+            var selectObj = $(this);
+            selectObj.addClass('article-detail-nav-select');
+            var h = selectObj.hasClass('article-detail-nav-h1') ? 'h1' : 'h2';
+            console.log(h);
+            var topOffset = $(h).eq(selectObj.data('index')).offset().top;
+            $('html,body').animate({scrollTop: topOffset}, 'slow');
+        });
+    },
+    subText: function (text) {
+        var max = 10;
+        var replaceStr = '...';
+
+        if (text.length > max) {
+            return text.substring(0, max) + replaceStr;
+        }
+        return text;
     }
 };
 
@@ -68,6 +140,7 @@ DetailPage.prototype = {
         _this.articleDetail = new ArticleDetail();
         _this.articleDetail.init(function () {
             _this.articleDetail.render();
+            _this.articleDetail.renderTitle();
         });
     }
 };
