@@ -1,4 +1,3 @@
-/*markdown*/
 .article-detail-content code {
     background-color: #eeeeee;
     display: inline-block;
@@ -9,7 +8,7 @@
 }
 
 .article-detail-content p {
-    margin: 10px 0 20px 0;
+    margin: 5px 0;
     line-height: 1.85;
 }
 
@@ -28,4 +27,9 @@
     margin: 5px 40px;
 }
 
-/*markdown*/
+.article-detail-content img {
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
+    border: solid 1px #f0f0f0;
+}

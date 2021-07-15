@@ -52,7 +52,7 @@ ArticleDetail.prototype = {
             pedantic: false,
             sanitize: false,
             smartLists: true,
-            smartypants: false
+            smartypants: false,
         });
         $('.article-detail-left').html(marked(_this.content));
     },
@@ -121,13 +121,29 @@ ArticleDetail.prototype = {
         });
     },
     subText: function (text) {
-        var max = 10;
+        var _this = this;
+        var max = 20;
         var replaceStr = '...';
 
-        if (text.length > max) {
+        if (_this.getLength(text) > max) {
             return text.substring(0, max) + replaceStr;
         }
         return text;
+    },
+    getLength: function (text) {
+        if (!text) {
+            return 0;
+        }
+        var len = text.length;
+        var reLen = 0;
+        for (var i = 0; i < len; i++) {
+            if (text.charCodeAt(i) < 27 || text.charCodeAt(i) > 126) {
+                reLen += 2;
+            } else {
+                reLen++;
+            }
+        }
+        return reLen;
     }
 };
 
