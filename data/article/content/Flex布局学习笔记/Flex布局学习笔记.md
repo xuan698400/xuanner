@@ -1,7 +1,7 @@
 # 零、简介
 2009年，W3C提出了一种新的方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。
 
-<img src="/xuanner/data/article/content/Flex布局学习笔记/pic1.jpeg" width="600" />
+<img src="data/article/content/Flex布局学习笔记/pic1.jpeg" width="600" />
 
 # 一、Flex布局是什么？
 Flex是Flexible Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。任何一个容器都可以指定为Flex布局。
@@ -123,7 +123,7 @@ flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间�
   flex-shrink: <number>; /* default 1 */
 }
 ```
-<img src="/xuanner/data/article/content/Flex布局学习笔记/pic20.png" width="600" />
+<img src="/xuanner/data/article/content/Flex布局学习笔记/pic20.jpeg" width="600" />
 如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。负值对该属性无效。
 
 ## flex-basis
