@@ -34,19 +34,14 @@ Article.prototype = {
             return a.createTime < b.createTime ? 1 : -1
         });
     },
-    filterByTag: function (tag) {
+    filterByTag: function (tagsStr) {
+        //其中tag支持多个，逗号分隔
         var _this = this;
         this.renderArticles = [];
         for (var i in _this.allArticles) {
             var article = _this.allArticles[i];
-            var tagStr = article.tags;
-            if (tagStr) {
-                var tags = tagStr.split(',');
-                for (var j in tags) {
-                    if (tags[j] === tag) {
-                        _this.renderArticles.push(article);
-                    }
-                }
+            if (_this.isTagsContain(tagsStr, article.tags)) {
+                _this.renderArticles.push(article);
             }
         }
     },
@@ -89,6 +84,23 @@ Article.prototype = {
             return v;
         });
         articleList.html(content);
+    },
+    isTagsContain: function (tagsStr1, tagsStr2) {
+        //tagsStr1和tagsStr2都是支持多个tag，逗号分割
+        if (!tagsStr1 || !tagsStr2) {
+            return false;
+        }
+        var tags1 = tagsStr1.split(',');
+        var tags2 = tagsStr2.split(',');
+        for (var i in tags1) {
+            var t = tags1[i];
+            for (var j in tags2) {
+                if (t === tags2[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 };
 
@@ -135,9 +147,8 @@ Game.prototype = {
 function IndexPage() {
     this.game = null;
     this.article = null;
-    this.currentTag = '首页';
+    this.currentTag = '首页';//支持多个逗号分隔
     this.searchKey = '';
-
 }
 
 IndexPage.prototype = {
@@ -160,7 +171,7 @@ IndexPage.prototype = {
         allA.click(function () {
             allA.removeClass('select');
             $(this).addClass('select');
-            _this.currentTag = $(this).html();
+            _this.currentTag = $(this).data('tags');
             _this.renderByCurrentTag();
         });
     },
@@ -204,4 +215,7 @@ IndexPage.prototype = {
 $(function () {
     var indexPage = new IndexPage();
     indexPage.init();
+
+    var ss = 'dd';
+    console.log(ss.split(','));
 });
