@@ -101,6 +101,51 @@ Article.prototype = {
             }
         }
         return false;
+    },
+    isItemInArray: function (item, array) {
+        for (var i in array) {
+            if (item === array[i]) {
+                return true;
+            }
+        }
+        return false;
+    },
+    getAllTags: function () {
+        var _this = this;
+        if (!_this.allArticles) {
+            return [];
+        }
+
+        var tags = [];
+        for (var i in _this.allArticles) {
+            var articles = _this.allArticles[i];
+            var articleTags = articles.tags.split(',');
+            for (var j in articleTags) {
+                if (!_this.isItemInArray(articleTags[j], tags)) {
+                    tags.push(articleTags[j]);
+                }
+            }
+        }
+        return tags;
+    },
+    removeItemFromArray: function (item, array) {
+        var newArray = [];
+        for (var i in array) {
+            if (item !== array[i]) {
+                newArray.push(array[i]);
+            }
+        }
+        return newArray;
+    },
+    joinArray: function (array) {
+        var str = '';
+        for (var i = 0, n = array.length; i < n; i++) {
+            if (i > 0) {
+                str += ',';
+            }
+            str += array[i];
+        }
+        return str;
     }
 };
 
@@ -160,6 +205,7 @@ IndexPage.prototype = {
             _this.renderByCurrentTag();
             _this.initNav();
             _this.initInput();
+            _this.renderTagSearch();
         });
         //
         _this.game = new Game();
@@ -173,6 +219,7 @@ IndexPage.prototype = {
             $(this).addClass('select');
             _this.currentTag = $(this).data('tags');
             _this.renderByCurrentTag();
+            _this.renderTagSearch();
         });
     },
     initInput: function () {
@@ -197,17 +244,46 @@ IndexPage.prototype = {
             window.open('detail.html?title=' + articleName + '&tagsStr=' + tags + '&createTime=' + createTime);
         });
     },
-    renderByCurrentTag: function () {
+    initTagSearch: function () {
         var _this = this;
-        _this.article.filterByTag(_this.currentTag);
-        _this.article.render();
-        _this.initTitleClick();
+        $('.tag-search-item').on('click', function () {
+            var clickTag = $(this).html();
+            if (_this.article.isItemInArray(clickTag, _this.currentTag.split(','))) {
+                //当前点击tag已选中，需要去掉
+                $(this).removeClass('select');
+                var newCurrentTag = _this.article.removeItemFromArray(clickTag, _this.currentTag.split(','));
+                _this.currentTag = _this.article.joinArray(newCurrentTag);
+                _this.renderByCurrentTag();
+            } else {
+                //当前点击tag未选中，需要加上
+                $(this).addClass('select');
+                _this.currentTag += ',' + clickTag;
+                _this.renderByCurrentTag();
+            }
+        });
+    },
+    renderByCurrentTag: function () {
+        this.article.filterByTag(this.currentTag);
+        this.article.render();
+        this.initTitleClick();
     },
     renderBySearchKey: function () {
-        var _this = this;
-        _this.article.filterBySearchKey(_this.searchKey);
-        _this.article.render();
-        _this.initTitleClick();
+        this.article.filterBySearchKey(this.searchKey);
+        this.article.render();
+        this.initTitleClick();
+    },
+    renderTagSearch: function () {
+        var allTags = this.article.getAllTags();
+        var tagSearchGroupObj = $('.tag-search-group');
+        tagSearchGroupObj.html('');
+        for (var i in allTags) {
+            var select = '';
+            if (this.article.isItemInArray(allTags[i], this.currentTag.split(','))) {
+                select = 'select';
+            }
+            tagSearchGroupObj.append('<div class="tag-search-item ' + select + '">' + allTags[i] + '</div>');
+        }
+        this.initTagSearch();
     }
 };
 
@@ -215,7 +291,4 @@ IndexPage.prototype = {
 $(function () {
     var indexPage = new IndexPage();
     indexPage.init();
-
-    var ss = 'dd';
-    console.log(ss.split(','));
 });
