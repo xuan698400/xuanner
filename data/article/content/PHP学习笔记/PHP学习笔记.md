@@ -70,20 +70,20 @@ switch (expr) {
 
 # 数据库操作
 ## 连接
-注意：在使用数据库时，早点使用 `mysql_close()` 将连接关掉可以节省资源。
 ```
-$conn=mysql_connect ("127.0.0.1:8043", [username], "[password]");
+$conn = mysql_connect ("127.0.0.1:8043", [username], "[password]");
 mysql_select_db("shop");
+...
+mysql_close();
 ```
-注意：在使用数据库时，早点使用 `mysql_close()` 将连接关掉可以节省资源。在实际应用中应当加强点错误判断
+注意：在使用数据库时，早点使用 `mysql_close()` 将连接关掉可以节省资源。在实际应用中应当加强点错误判断.
 
 ## 读取
-如下构建SQL、查询、遍历解析数据
 ```
 <? 
-    $exec="select * from user";
-    $result=mysql_query($exec);
-    while($rs=mysql_fetch_object($result))
+    $exec = "select * from user";
+    $result = mysql_query($exec);
+    while($rs = mysql_fetch_object($result))
     {
         echo "username:".$rs->username."<br>"; 
     }
@@ -91,15 +91,15 @@ mysql_select_db("shop");
 ```
 
 ## 增删改操作
-单这个语句就可以执行所有的操作了，不同的是传入的语法不一样而已
+使用同样的API`mysql_query()`
 ```
 //新增
-$exec="insert into tablename (item1,item2) 
+$exec = "insert into tablename (item1,item2) 
 values ('".$_POST['item1']."',".$_POST['item1'].")"; 
 //删除
-$exec="delete from tablename where..."; 
+$exec = "delete from tablename where..."; 
 //修改
-$exec="update tablename set item1='".$_POST['item1']."' where ..."; 
+$exec = "update tablename set item1='".$_POST['item1']."' where ..."; 
 ```
 
 # 表单中的数据传递
