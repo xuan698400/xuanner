@@ -69,26 +69,24 @@ switch (expr) {
 ```
 
 # 数据库操作
-## 连接
 ```
-$conn = mysql_connect ("127.0.0.1:8043", [username], "[password]");
-mysql_select_db("shop");
-...
-mysql_close();
-```
-注意：在使用数据库时，早点使用 `mysql_close()` 将连接关掉可以节省资源。在实际应用中应当加强点错误判断.
-
-## 读取
-```
-<? 
-    $exec = "select * from user";
-    $result = mysql_query($exec);
-    while($rs = mysql_fetch_object($result))
-    {
-        echo "username:".$rs->username."<br>"; 
-    }
+<?php
+//建立链接
+$conn = mysqli_connect("127.0.0.1:3306", "bpmweb", "123456");
+//选择数据库
+mysqli_select_db($conn, "bpmweb");
+//查询
+$result = mysqli_query($conn, "SELECT * FROM bw_user");
+//遍历数据输出
+while ($rs = mysqli_fetch_object($result)) {
+    echo "username:" . $rs->id . "\n";
+    echo "username:" . $rs->username . "\n";
+}
+//关闭链接
+mysqli_close($conn);
 ?>
 ```
+注意：在使用数据库时，早点使用 `mysql_close()` 将连接关掉可以节省资源。在实际应用中应当加强点错误判断.
 
 ## 增删改操作
 使用同样的API`mysql_query()`
