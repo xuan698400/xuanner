@@ -1,0 +1,8 @@
+@startuml
+class Teacher {
+    + Course
+}
+class Course{
+}
+Teacher <-- Course
+@enduml

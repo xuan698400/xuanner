@@ -1,0 +1,8 @@
+@startuml
+class A {
+    + method(B b)
+}
+class B{
+}
+A <.. B
+@enduml

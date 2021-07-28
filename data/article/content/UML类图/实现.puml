@@ -1,0 +1,8 @@
+@startuml
+class IDog {
+
+}
+class Dog{
+}
+IDog <|.. Dog
+@enduml
