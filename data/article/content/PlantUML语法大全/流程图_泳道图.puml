@@ -1,0 +1,15 @@
+@startuml
+|系统A|
+start
+:系统A流程1;
+:系统A流程2;
+|#AntiqueWhite|系统B|
+:系统B流程1;
+:系统B流程2;
+|#D2D2D2|系统C|
+:系统C流程1;
+:系统C流程2;
+|系统A|
+:收尾;
+stop
+@enduml

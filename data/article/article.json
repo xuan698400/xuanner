@@ -124,5 +124,11 @@
     "summary": "常见UML含义，以及对应plantuml的预发",
     "createTime": "2021-07-28 11:56:00",
     "tags": "首页,学习笔记,UML,PlantUML"
+  },
+  {
+    "title": "PlantUML语法大全",
+    "summary": "PlantUML语法笔记备注，包括：流程图、时序图、类图等",
+    "createTime": "2021-08-04 16:29:00",
+    "tags": "首页,学习笔记,PlantUML"
   }
 ]
