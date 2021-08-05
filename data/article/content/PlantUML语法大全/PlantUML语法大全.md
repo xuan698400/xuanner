@@ -1,8 +1,9 @@
+这里只是记录自己常用的一些图，如果要更加详细的，可以移步：https://plantuml.com/zh/
 # 1. 流程图
 流程图（Flowchart）：使用图形表示算法的思路是一种极好的方法，因为千言万语不如一张图。流程图在汇编语言和早期的BASIC语言环境中得到应用。相关的还有一种PAD图，对PASCAL或C语言都极适用。
 ## 1.1 普通流程图
 图示：
-<img src="data/article/content/PlantUML语法大全/流程图_常规.png" width="600" />
+<img src="data/article/content/PlantUML语法大全/流程图_常规.png" width="400" />
 脚本：
 ```
 @startuml
@@ -47,7 +48,7 @@ stop
 ## 1.2 泳道图
 
 图示：
-<img src="data/article/content/PlantUML语法大全/流程图_泳道图.png" width="200" />
+<img src="data/article/content/PlantUML语法大全/流程图_泳道图.png" width="150" />
 
 脚本：
 ```
@@ -178,4 +179,19 @@ Bob o\\-- Alice
 Bob <-> Alice
 Bob <->o Alice
 @enduml
+```
+## 3.2 关系
+图示：
+<img src="data/article/content/PlantUML语法大全/类图_关系.png" width="400" />
+
+脚本：
+```
+@startuml
+Class01 <|-- Class02
+Class03 *-- Class04
+Class05 o-- Class06
+Class07 .. Class08
+Class09 -- Class10
+@enduml
+
 ```
