@@ -11,6 +11,7 @@
 .article-detail-content p {
     margin: 5px 0;
     line-height: 1.85;
+    font-size: 14px;
 }
 
 .article-detail-content blockquote {
