@@ -42,12 +42,6 @@
     border: 1px solid #cbcbcb;
 }
 
-.article-detail-content thead tr {
-    background-color: #6C6C6C;
-    color: #FFF;
-    border: 1px solid #6C6C6C;
-}
-
 .article-detail-content thead th {
     padding: 5px 10px;
 }
@@ -56,5 +50,15 @@
     border: 1px solid #CBCBCB;
     padding: 5px 10px;
     font-size: 14px;
+}
+
+.article-detail-content tr:nth-child(even) {
+    background-color: #F4F4F4;
+}
+
+.article-detail-content thead tr {
+    background-color: #6C6C6C;
+    color: #FFF;
+    border: 1px solid #6C6C6C;
 }
 
