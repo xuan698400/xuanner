@@ -35,3 +35,26 @@
     -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
     border: solid 1px #f0f0f0;
 }
+
+/*table*/
+.article-detail-content table {
+    border-collapse: collapse;
+    border: 1px solid #cbcbcb;
+}
+
+.article-detail-content thead tr {
+    background-color: #6C6C6C;
+    color: #FFF;
+    border: 1px solid #6C6C6C;
+}
+
+.article-detail-content thead th {
+    padding: 5px 10px;
+}
+
+.article-detail-content td {
+    border: 1px solid #CBCBCB;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
