@@ -23,6 +23,10 @@
 
 .article-detail-content h1 {
     margin: 10px 0;
+    font-size: 32px;
+}
+.article-detail-content h2 {
+    font-size: 22px;
 }
 
 .article-detail-content li {
@@ -60,5 +64,11 @@
     background-color: #6C6C6C;
     color: #FFF;
     border: 1px solid #6C6C6C;
+}
+
+/*li*/
+.article-detail-content li {
+    list-style-type: square;
+    font-size: 14px;
 }
 
