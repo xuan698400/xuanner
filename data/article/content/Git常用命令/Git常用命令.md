@@ -47,7 +47,7 @@
 
 # 替换本地改动
 * 假如你修改错了本地文件，需要替换远端的最新文件可以：`git checkout -- <filename>`
-* 
+* 如果你想回滚提交过的修改，可以：`git fetch origin`然后再`git reset --hard origin/master`
 
 # commit后未push回退
 git reset -hard HEAD^
