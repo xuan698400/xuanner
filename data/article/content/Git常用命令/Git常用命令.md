@@ -18,14 +18,8 @@
 <img src="data/article/content/Git常用命令/trees.png" width=400 />
 
 # 添加和提交
-<<<<<<< HEAD
 * 添加：你在工作空间修改文件后，可以用命令提交到暂存区：`git add <filename>`或者提交全部`git add *`。
 * 提交：可以把暂存区的内容提交的到HEAD记录。`git commit -m "提交说明"`。一般我喜欢`git commit -a -m "提交说明"`。加了-a可以免去你git add操作。不过只有修改文件有用，新增文件时，还是不能省git add操作的。
-=======
-* 添加：你在工作空间修改文件后，可以用命令提交到暂存区：`git add <filename>`或者提交全部`git add .`。
-* 提交：可以把暂存区的内容提交的到HEAD记录。`git commit -m "提交说明"`。
->>>>>>> 4a8711eb7aef9e2cd3c6cf4a91b47b04d0b8c41e
-（PS：这时你的改动已经提交到了本地仓库，但是还没有合并到你的远端仓库）
 
 # 推送改动
 可以把你的改动推送到远端仓库：`git push origin master`。可以把master换成别的分支。
