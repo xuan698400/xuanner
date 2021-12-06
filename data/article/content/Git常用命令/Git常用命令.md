@@ -18,7 +18,7 @@
 <img src="data/article/content/Git常用命令/trees.png" width=400 />
 
 # 添加和提交
-* 添加：你在工作空间修改文件后，可以用命令提交到暂存区：`git add <filename>`或者提交全部`git add *`。
+* 添加：你在工作空间修改文件后，可以用命令提交到暂存区：`git add <filename>`或者提交全部`git add .`。
 * 提交：可以把暂存区的内容提交的到HEAD记录。`git commit -m "提交说明"`。
 （PS：这时你的改动已经提交到了本地仓库，但是还没有合并到你的远端仓库）
 
@@ -49,5 +49,8 @@
 * 假如你修改错了本地文件，需要替换远端的最新文件可以：`git checkout -- <filename>`
 * 如果你想回滚提交过的修改，可以：`git fetch origin`然后再`git reset --hard origin/master`
 
+
+dddd
+
 # commit后未push回退
-git reset -hard HEAD^
+git reset -hard HEAD^gt
