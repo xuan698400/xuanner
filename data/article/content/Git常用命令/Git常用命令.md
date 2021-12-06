@@ -18,7 +18,7 @@
 <img src="data/article/content/Git常用命令/trees.png" width=400 />
 
 # 添加和提交
-* 添加：你在工作空间修改文件后，可以用命令提交到暂存区（新增文件需要，在原来已经提交文件上修改不用）：`git add <filename>`或者提交全部`git add *`。
+* 添加：你在工作空间修改文件后，可以用命令提交到暂存区：`git add <filename>`或者提交全部`git add *`。
 * 提交：可以把暂存区的内容提交的到HEAD记录。`git commit -m "提交说明"`。
 （PS：这时你的改动已经提交到了本地仓库，但是还没有合并到你的远端仓库）
 
@@ -41,12 +41,13 @@
 * 冲突：如果同一个文件冲突了，需要你手动进行修改，确认后记得：`git add <filename>`
 * 差异预览：你可以查看两个分支之间的差异：`git diff <brnach1> <branch2>`
 
-# 标签
+# 标签1
 * 获取提交ID：`git log`
 * 标记一个tag：`git tag 1.0.0 1b2e1d63ff`。其中1b2e1d63ff是想要标记的提交ID的前10位。
 
 # 替换本地改动
-
+* 假如你修改错了本地文件，需要替换远端的最新文件可以：`git checkout -- <filename>`
+* 
 
 # commit后未push回退
 git reset -hard HEAD^
