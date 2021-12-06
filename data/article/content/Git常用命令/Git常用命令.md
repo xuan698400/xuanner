@@ -19,7 +19,7 @@
 
 # 添加和提交
 * 添加：你在工作空间修改文件后，可以用命令提交到暂存区：`git add <filename>`或者提交全部`git add *`。
-* 提交：可以把暂存区的内容提交的到HEAD记录。`git commit -m "提交说明"`。
+* 提交：可以把暂存区的内容提交的到HEAD记录。`git commit -m "提交说明"`。一般我喜欢`git commit -a -m "提交说明"`。加了-a可以免去你git add操作。不过只有修改文件有用，新增文件时，还是不能省git add操作的。
 （PS：这时你的改动已经提交到了本地仓库，但是还没有合并到你的远端仓库）
 
 # 推送改动
@@ -41,13 +41,10 @@
 * 冲突：如果同一个文件冲突了，需要你手动进行修改，确认后记得：`git add <filename>`
 * 差异预览：你可以查看两个分支之间的差异：`git diff <brnach1> <branch2>`
 
-# 标签1
+# 标签
 * 获取提交ID：`git log`
 * 标记一个tag：`git tag 1.0.0 1b2e1d63ff`。其中1b2e1d63ff是想要标记的提交ID的前10位。
 
 # 替换本地改动
 * 假如你修改错了本地文件，需要替换远端的最新文件可以：`git checkout -- <filename>`
-* 如果你想回滚提交过的修改，可以：`git fetch origin`然后再`git reset --hard origin/master`
-
-# commit后未push回退
-git reset -hard HEAD^
+* 如果你想回滚提交过的修改，可以：`git fetch origin`、`git reset --hard origin/master`。或者直接这样貌似也是可以的`git reset -hard HEAD^`。
