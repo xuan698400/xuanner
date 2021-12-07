@@ -175,7 +175,7 @@ Game.prototype = {
         var _this = this;
         var gameItems = $('.game-box-items');
         gameItems.html('');
-        var template = '<div class="game-box-item" data-url="{openUrl}">' +
+        var template = '<div class="box-item" data-url="{openUrl}">' +
             '                            <img src="{pic}"/>' +
             '                            <p>{name}</p>' +
             '                        </div>';
@@ -183,7 +183,48 @@ Game.prototype = {
         gameItems.html(html);
     },
     initClick: function () {
-        $('.game-box-item').on('click', function () {
+        $('.box-item').on('click', function () {
+            window.open($(this).data('url'));
+        });
+    }
+};
+
+
+function App() {
+    this.apps = [];
+}
+
+App.prototype = {
+    constructor: App,
+    init: function () {
+        var _this = this;
+        this.loadApps(function () {
+            _this.render();
+            _this.initClick();
+        });
+    },
+    loadApps: function (callback) {
+        var _this = this;
+        $.get('app/app.json', function (apps) {
+            _this.apps = apps;
+            if (callback) {
+                callback();
+            }
+        });
+    },
+    render: function () {
+        var _this = this;
+        var appItems = $('.app-box-items');
+        appItems.html('');
+        var template = '<div class="box-item" data-url="{openUrl}">' +
+            '                            <img src="{pic}"/>' +
+            '                            <p>{name}</p>' +
+            '                        </div>';
+        var html = BW.renderList(template, _this.apps);
+        appItems.html(html);
+    },
+    initClick: function () {
+        $('.box-item').on('click', function () {
             window.open($(this).data('url'));
         });
     }
@@ -191,6 +232,7 @@ Game.prototype = {
 
 function IndexPage() {
     this.game = null;
+    this.app = null;
     this.article = null;
     this.currentTag = '首页';//支持多个逗号分隔
     this.searchKey = '';
@@ -210,6 +252,9 @@ IndexPage.prototype = {
         //
         _this.game = new Game();
         _this.game.init();
+        //
+        _this.app = new App();
+        _this.app.init();
     },
     initNav: function () {
         var _this = this;

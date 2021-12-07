@@ -269,7 +269,7 @@
     flex-wrap: wrap;
 }
 
-.game-box-item {
+.box-item {
     padding: 10px;
     width: 15%;
     border: solid 1px #eeeeee;
@@ -278,17 +278,17 @@
     cursor: pointer;
 }
 
-.game-box-item img {
+.box-item img {
     width: 100%;
 }
 
-.game-box-item p {
+.box-item p {
     font-size: 13px;
     color: #999;
     text-align: center;
 }
 
-.game-box-item:hover {
+.box-item:hover {
     background-color: #FFF3EE;
 }
 

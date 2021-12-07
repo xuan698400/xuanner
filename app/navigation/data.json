@@ -1,0 +1,47 @@
+[
+  {
+    "groupTitle": "学习资料",
+    "groupItems": [
+      {
+        "title": "Flex布局语法教程",
+        "desc": "CSS布局语法详细介绍",
+        "url": "https://www.runoob.com/w3cnote/flex-grammar.html"
+      },
+      {
+        "title": "HTML模版",
+        "desc": "静态页面模版下载",
+        "url": "https://sc.chinaz.com/tag_moban/html.html"
+      },
+      {
+        "title": "mxGraph属性",
+        "desc": "mxGraph框架支持Swing和JS绘制流程图",
+        "url": "https://segmentfault.com/a/1190000021357662"
+      },
+      {
+        "title": "图解Git",
+        "desc": "用图解的方式解释了Git的操作",
+        "url": "http://marklodato.github.io/visual-git-guide/index-zh-cn.html"
+      }
+    ]
+  },
+  {
+    "groupTitle": "常用在线工具",
+    "groupItems": [
+      {
+        "title": "二维码生成器",
+        "desc": "草料二维码",
+        "url": "https://cli.im/"
+      },
+      {
+        "title": "JSON对比",
+        "desc": "用来对比两个JSON的差异",
+        "url": "https://www.sojson.com/jsondiff.html"
+      },
+      {
+        "title": "JSON格式化",
+        "desc": "用来格式化JSON串",
+        "url": "https://www.bejson.com/"
+      }
+    ]
+  }
+]
