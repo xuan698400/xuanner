@@ -59,3 +59,12 @@ var decode = function (url) {
     return decodeURIComponent(url);
 };
 ```
+
+# 字符串是否包含另一个
+```
+var isContain = function (str1, str2, ignoreCase) {
+    var s1 = ignoreCase ? str1.toLowerCase() : str1;
+    var s2 = ignoreCase ? str2.toLowerCase() : str2;
+    return s1.indexOf(s2) !== -1;
+}
+```
