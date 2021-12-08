@@ -144,7 +144,7 @@
     margin: 5px;
 }
 
-.tag-search-group{
+.tag-search-group {
     display: -webkit-flex;
     display: flex;
     flex-wrap: wrap;
@@ -228,6 +228,27 @@
     border-radius: 5px;
 }
 
+.info-box-item-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: solid 1px #eeeeee;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    justify-content: space-between;
+}
+
+.info-box-item-header img {
+    width: 26px;
+    height: 26px;
+}
+
+.info-box-item-header img:hover {
+    background-color: #FFF3EE;
+    cursor: pointer;
+    border-radius: 13px;
+}
+
 .aboutme {
     display: -webkit-flex;
     display: flex;
@@ -243,11 +264,8 @@
 }
 
 .info-box-item-title {
-    border-bottom: solid 1px #eeeeee;
-    padding-bottom: 10px;
     font-size: 14px;
     color: #333333;
-    margin-bottom: 10px;
     font-weight: bold;
 }
 

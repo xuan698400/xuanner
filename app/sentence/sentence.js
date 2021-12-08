@@ -39,6 +39,12 @@ Sentence.prototype = {
 
         return randomData;
     },
+    initRefreshBtn: function (idName) {
+        var _this = this;
+        $('#' + idName).on('click', function () {
+            _this.indexRender();
+        });
+    },
     indexInitClick: function () {
         // $('.nav-group-item').on('click', function () {
         //     window.open($(this).data('url'));

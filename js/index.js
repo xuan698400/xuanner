@@ -340,5 +340,8 @@ $(function () {
     var sentence = new Sentence();
     sentence.init('app/sentence/sentence.json', function () {
         sentence.indexRender();
-    })
+    });
+    $('#sentenceRefreshBtn').on('click', function () {
+        sentence.indexRender();
+    });
 });
