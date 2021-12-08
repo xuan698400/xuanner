@@ -41,6 +41,32 @@
         "title": "JSON格式化",
         "desc": "用来格式化JSON串",
         "url": "https://www.bejson.com/"
+      },
+      {
+        "title": "RGB颜色对照",
+        "desc": "常规RGB颜色以及取色计算",
+        "url": "https://tool.oschina.net/commons?type=3"
+      },
+      {
+        "title": "正则表达式匹配",
+        "desc": "可以测试匹配正则",
+        "url": "https://tool.oschina.net/regex/"
+      },
+      {
+        "title": "代码格式化",
+        "desc": "可以格式化Java、CSS、HTML等很多代码",
+        "url": "https://tool.oschina.net/codeformat/html/"
+      },
+      {
+        "title": "进制转换",
+        "desc": "2、4、8、10、16等进制转换",
+        "url": "https://tool.oschina.net/hexconvert/"
+      }
+    ,
+      {
+        "title": "加密解密",
+        "desc": "各种算法加解密，例如AES、BASE64等",
+        "url": "https://tool.oschina.net/encrypt/"
       }
     ]
   }
