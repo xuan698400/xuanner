@@ -336,4 +336,9 @@ IndexPage.prototype = {
 $(function () {
     var indexPage = new IndexPage();
     indexPage.init();
+
+    var sentence = new Sentence();
+    sentence.init('app/sentence/sentence.json', function () {
+        sentence.indexRender();
+    })
 });
