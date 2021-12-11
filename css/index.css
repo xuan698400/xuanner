@@ -280,7 +280,7 @@
     background-color: #FFF3EE;
 }
 
-.game-box-items {
+.box-items {
     display: -webkit-flex;
     display: flex;
     flex-direction: row;
