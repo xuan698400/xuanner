@@ -50,24 +50,37 @@
 }
 
 .date-item {
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
     width: 150px;
     height: 80px;
-    line-height: 80px;
     border-right: 1px solid #FFE4C4;
     border-bottom: 1px solid #FFE4C4;
-    text-align: center;
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.date-item p {
+    margin: 0;
+    padding: 0;
+}
+
+.date-item .detail {
+    font-size: 14px;
+    margin-top: 5px;
 }
 
 .date-item-current {
     background-color: #8EE5EE;
 }
+
 .date-item-message {
     background-color: #FF7256;
 }
-.date-item-grey{
-    background-color: #F5F5F5;
+
+.date-item-grey {
+    color: #CDC5BF;
 }
 
 .tips {
@@ -84,7 +97,7 @@
     font-weight: bold;
 }
 
-.tipContent{
+.tipContent {
     display: flex;
     flex-direction: column;
 }

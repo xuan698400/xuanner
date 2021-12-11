@@ -85,7 +85,10 @@ Calender.prototype = {
         document.getElementById('dateWrap').innerHTML = str;
     },
     renderDayItem: function (day) {
+        console.log(calendar.solar2lunar(day.y, day.m, day.d).IDayCn);
         let showDayText = day.d;
+        let showDayDetailText = calendar.solar2lunar(day.y, day.m, day.d).IDayCn;
+        let dataText = 'data-y={y} data-m={m} data-d={d}'.replace('{y}', day.y).replace('{m}', day.m).replace('{d}', day.d);
         let clazz = '';
 
         //是否非本月匹配
@@ -96,22 +99,23 @@ Calender.prototype = {
         //是否是今天匹配
         let currentDay = this.getCurrentDay();
         if (currentDay.year === day.y && (currentDay.month + 1) === day.m && currentDay.day === day.d) {
-            showDayText = day.d + "(今)";
+            showDayText = showDayText + "(今)";
             clazz = 'date-item-current';
         }
 
         //是否有提示匹配
-        let datas = this.datas;
-        for (let i in datas) {
-            let data = datas[i];
+        for (let i in this.datas) {
+            let data = this.datas[i];
             if (this.matchMessage(data, day)) {
                 //有重要提示信息
-                showDayText = day.d + '(' + data.msg + ')';
+                showDayText = showDayText + '(' + data.msg + ')';
                 clazz = 'date-item-message';
             }
         }
 
-        return '<span class="date-item ' + clazz + '" data-y="' + day.y + '" data-m="' + day.m + '" data-d="' + day.d + '">' + showDayText + '</span>';
+        let template = '<div class="date-item {clazz}" {dataText} ><p>{showDayText}</p><p class="detail">{showDayDetailText}</p></div>';
+
+        return template.replace('{clazz}', clazz).replace('{dataText}', dataText).replace('{showDayText}', showDayText).replace('{showDayDetailText}', showDayDetailText);
     },
     renderTips: function (day) {
         let datas = this.datas;
