@@ -85,9 +85,10 @@ Calender.prototype = {
         document.getElementById('dateWrap').innerHTML = str;
     },
     renderDayItem: function (day) {
-        console.log(calendar.solar2lunar(day.y, day.m, day.d).IDayCn);
+        console.log(calendar.solar2lunar(day.y, day.m, day.d));
         let showDayText = day.d;
-        let showDayDetailText = calendar.solar2lunar(day.y, day.m, day.d).IDayCn;
+        let lunarDay = calendar.solar2lunar(day.y, day.m, day.d);
+        let showDayDetailText = lunarDay.IDayCn;
         let dataText = 'data-y={y} data-m={m} data-d={d}'.replace('{y}', day.y).replace('{m}', day.m).replace('{d}', day.d);
         let clazz = '';
 
