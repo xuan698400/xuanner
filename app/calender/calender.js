@@ -85,24 +85,29 @@ Calender.prototype = {
         document.getElementById('dateWrap').innerHTML = str;
     },
     renderDayItem: function (day) {
-        let currentDay = this.getCurrentDay();
         let showDayText = day.d;
-        let showMessages = [];
-
         let clazz = '';
+
+        //是否非本月匹配
+        if (!day.isCurrentMonth) {
+            clazz = 'date-item-grey';
+        }
+
+        //是否是今天匹配
+        let currentDay = this.getCurrentDay();
         if (currentDay.year === day.y && (currentDay.month + 1) === day.m && currentDay.day === day.d) {
             showDayText = day.d + "(今)";
             clazz = 'date-item-current';
         }
 
+        //是否有提示匹配
         let datas = this.datas;
         for (let i in datas) {
             let data = datas[i];
             if (this.matchMessage(data, day)) {
                 //有重要提示信息
-                showDayText = day.d + "(要)";
+                showDayText = day.d + '(' + data.msg + ')';
                 clazz = 'date-item-message';
-                showMessages.push(data.message)
             }
         }
 
@@ -114,17 +119,20 @@ Calender.prototype = {
         for (let i in datas) {
             let data = datas[i];
             if (this.matchMessage(data, day)) {
-                showMessages.push(data.message)
+                showMessages.push(data.msg + ':' + data.msgDetail)
             }
         }
 
         if (showMessages.length > 0) {
-            $('.tips').show();
+            $('.tips').slideDown();
             let tipContentObj = $('.tipContent');
             tipContentObj.html('');
             for (let i in showMessages) {
                 tipContentObj.append('<p>' + showMessages[i] + '</p>');
             }
+        } else {
+            $('.tips').hide();
+            $('.tipContent').html('');
         }
     },
     matchMessage: function (data, day) {
@@ -176,21 +184,24 @@ Calender.prototype = {
             days.push({
                 y: preY,
                 m: preM,
-                d: preArr[i]
+                d: preArr[i],
+                isCurrentMonth: false
             });
         }
         for (let i in currentMonth) {
             days.push({
                 y: currentY,
                 m: currentM,
-                d: currentMonth[i]
+                d: currentMonth[i],
+                isCurrentMonth: true
             });
         }
         for (let i in nextArr) {
             days.push({
                 y: nextY,
                 m: nextM,
-                d: nextArr[i]
+                d: nextArr[i],
+                isCurrentMonth: false
             });
         }
         return days;

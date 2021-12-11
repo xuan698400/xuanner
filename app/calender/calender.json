@@ -3,6 +3,7 @@
     "year": "*",
     "month": 5,
     "day": 31,
-    "message": "老妈生日"
+    "msg": "生日",
+    "msgDetail": "老妈生日"
   }
 ]
