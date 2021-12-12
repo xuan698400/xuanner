@@ -14,9 +14,12 @@
     display: flex;
     flex-direction: row;
     border: 2px solid #6495ED;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 
 .calender {
+    margin: 10px 0 10px 10px;
 }
 
 .year-line {
@@ -46,9 +49,9 @@
 
 .week-item {
     display: inline-block;
-    width: 150px;
-    height: 80px;
-    line-height: 80px;
+    width: 100px;
+    height: 60px;
+    line-height: 60px;
     /*border-right: 1px solid sandybrown;*/
     /*border-bottom: 1px solid sandybrown;*/
     text-align: center;
@@ -56,19 +59,20 @@
 }
 
 .date-wrap {
-    border-left: 1px solid beige;
+    /*border-left: 1px solid beige;*/
 }
 
 .date-item {
     display: inline-flex;
     flex-direction: column;
-    width: 150px;
-    height: 80px;
+    width: 100px;
+    height: 60px;
     /*border-right: 1px solid #FFE4C4;*/
     /*border-bottom: 1px solid #FFE4C4;*/
     cursor: pointer;
     align-items: center;
     justify-content: center;
+    margin: 10px;
 }
 
 .date-item p {
