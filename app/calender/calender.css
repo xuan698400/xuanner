@@ -1,3 +1,8 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 .main {
     display: flex;
     flex-direction: column;
@@ -8,17 +13,22 @@
 .wrapper {
     display: flex;
     flex-direction: row;
+    border: 2px solid #6495ED;
+}
+
+.calender {
 }
 
 .year-line {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-bottom: 20px;
+    padding: 20px;
 }
 
 .year-line-btn {
     margin-left: 20px;
+    padding: 5px 10px;
 }
 
 .year-prev {
@@ -30,8 +40,8 @@
 }
 
 .week-line {
-    border-top: 1px solid sandybrown;
-    border-left: 1px solid sandybrown;
+    /*border-top: 1px solid sandybrown;*/
+    /*border-left: 1px solid sandybrown;*/
 }
 
 .week-item {
@@ -39,10 +49,10 @@
     width: 150px;
     height: 80px;
     line-height: 80px;
-    border-right: 1px solid sandybrown;
-    border-bottom: 1px solid sandybrown;
+    /*border-right: 1px solid sandybrown;*/
+    /*border-bottom: 1px solid sandybrown;*/
     text-align: center;
-    background-color: #FAEBD7;
+    /*background-color: #FAEBD7;*/
 }
 
 .date-wrap {
@@ -54,8 +64,8 @@
     flex-direction: column;
     width: 150px;
     height: 80px;
-    border-right: 1px solid #FFE4C4;
-    border-bottom: 1px solid #FFE4C4;
+    /*border-right: 1px solid #FFE4C4;*/
+    /*border-bottom: 1px solid #FFE4C4;*/
     cursor: pointer;
     align-items: center;
     justify-content: center;
@@ -73,39 +83,74 @@
 
 .date-item-current {
     background-color: #8EE5EE;
+    border-radius: 10px;
 }
 
 .date-item-message {
     background-color: #FDE3E4;
+    border-radius: 10px;
 }
 
 .date-item-grey {
     color: #CDC5BF;
 }
 
-.tips {
-    display: none;
-    margin: 50px 0 0 20px;
-    background-color: #F5F5F5;
-    border: #ecedee solid 1px;
-    border-radius: 5px;
-    padding: 10px;
+.msg-detail {
+    display: flex;
+    flex-direction: column;
+    background-color: #6495ED;
+    color: white;
+    width: 200px;
     align-items: center;
 }
 
-.tips .title {
-    font-weight: bold;
-}
-
-.tipContent {
+.msg-detail .msg-detail-line {
     display: flex;
     flex-direction: column;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
 }
 
-.tips .tipContent p {
-    margin: 5px 0;
+.msg-detail .msg-detail-line .line {
+    margin: 10px 0 0 0;
+}
+
+.msg-detail .msg-detail-line .top {
+    margin: 20px 0;
+}
+
+.msg-detail .msg-detail-message {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+    background-color: #4E6EF2;
+    margin-top: 30px;
+}
+
+.msg-detail .msg-detail-message p {
+    margin: 10px 10px 0 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed white;
+    font-size: 14px;
+}
+
+.msg-detail .msg-detail-day {
+    background: rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+    height: 120px;
+    justify-content: center;
+    align-items: center;
+    font-size: 64px;
+    font-weight: bold;
+    border-radius: 15px;
 }
 
 .active {
-    border: 1px solid #436EEE;
+    border: 2px solid #436EEE;
+    border-radius: 10px;
 }

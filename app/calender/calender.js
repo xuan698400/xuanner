@@ -1,5 +1,6 @@
 function Calender() {
     this.datas = [];
+    this.selectDay = undefined;
 }
 
 Calender.prototype = {
@@ -10,7 +11,14 @@ Calender.prototype = {
             _this.renderWeek();
             _this.renderCalendar();
             _this.initEvent();
+            _this.renderTips();
         });
+    },
+    initCurrentDayToSelect: function () {
+        let currentDay = this.getCurrentDay();
+        let day = {'y': currentDay.year, 'm': currentDay.month, 'd': currentDay.day};
+        this.fillLunarDay(day)
+        this.selectDay = day;
     },
     //判断是否是闰年。规则判断：能被400整除的，或者非100年且能被4整除的
     isLeapYear: function (year) {
@@ -76,7 +84,7 @@ Calender.prototype = {
             str += '<div class="date-line">';
             for (let j = 0; j < 7; j++) {
                 let day = days.shift();
-                str += this.renderDayItem(day);
+                str += this.renderDay(day);
                 if (j === 6) {
                     str += '</div>';
                 }
@@ -84,74 +92,65 @@ Calender.prototype = {
         }
         document.getElementById('dateWrap').innerHTML = str;
     },
-    renderDayItem: function (day) {
-        let showDayText = day.d;
-        let lunarDay = calendar.solar2lunar(day.y, day.m, day.d);
-        let showDayDetailText = lunarDay.IDayCn;
-        let dataText = 'data-y={y} data-m={m} data-d={d} data-ly={ly} data-lm={lm} data-ld={ld}'.replace('{y}', day.y).replace('{m}', day.m).replace('{d}', day.d).replace("{ly}", lunarDay.lYear).replace("{lm}", lunarDay.lMonth).replace("{ld}", lunarDay.lDay);
-        let clazz = '';
+    renderDay: function (day) {
+        let dataText = this.renderObj('data-y={y} data-m={m} data-d={d}', day);
+        let showObj = {'clazz': '', 'showDayText': day.d, 'showDayDetailText': day.ldCn, 'dataText': dataText};
 
         //是否非本月匹配
         if (!day.isCurrentMonth) {
-            clazz = 'date-item-grey';
+            showObj.clazz = 'date-item-grey';
         }
 
         //是否是今天匹配
         let currentDay = this.getCurrentDay();
         if (currentDay.year === day.y && (currentDay.month + 1) === day.m && currentDay.day === day.d) {
-            showDayText = showDayText + "(今)";
-            clazz = 'date-item-current';
+            showObj.showDayText += "(今)";
+            showObj.clazz = 'date-item-current';
         }
 
         //是否有提示匹配
         for (let i in this.datas) {
             let data = this.datas[i];
-            let lDay = {"ly": lunarDay.lYear, "lm": lunarDay.lMonth, "ld": lunarDay.lDay};
-            if (this.matchMessage(data, day, lDay)) {
+            if (this.matchMessage(data, day)) {
                 //有重要提示信息
-                showDayText = showDayText + '(' + data.msg + ')';
-                clazz = 'date-item-message';
+                showObj.showDayText += '(' + data.msg + ')';
+                showObj.clazz = 'date-item-message';
             }
         }
 
         let template = '<div class="date-item {clazz}" {dataText} ><p>{showDayText}</p><p class="detail">{showDayDetailText}</p></div>';
 
-        return template.replace('{clazz}', clazz).replace('{dataText}', dataText).replace('{showDayText}', showDayText).replace('{showDayDetailText}', showDayDetailText);
+        return this.renderObj(template, showObj);
     },
-    renderTips: function (day, lDay) {
-        let datas = this.datas;
-        let showMessages = [];
-        for (let i in datas) {
-            let data = datas[i];
-            if (this.matchMessage(data, day, lDay)) {
-                showMessages.push(data.msg + ':' + data.msgDetail)
+    renderTips: function () {
+        if (this.selectDay === undefined) {
+            this.initCurrentDayToSelect();
+        }
+
+        let hitDatas = [];
+        for (let i in this.datas) {
+            let data = this.datas[i];
+            if (this.matchMessage(data, this.selectDay)) {
+                hitDatas.push(data);
             }
         }
 
-        if (showMessages.length > 0) {
-            $('.tips').slideDown();
-            let tipContentObj = $('.tipContent');
-            tipContentObj.html('');
-            for (let i in showMessages) {
-                tipContentObj.append('<p>' + showMessages[i] + '</p>');
-            }
-        } else {
-            $('.tips').hide();
-            $('.tipContent').html('');
+        $('#detail-date').html(this.renderObj('{y}-{m}-{d}', this.selectDay));
+        $('#detail-day').html(this.selectDay.d);
+        $('#detail-ldate').html(this.renderObj('{lmCn}{ldCn}', this.selectDay));
+        $('#detail-gzdate').html(this.renderObj('{gzY}年 {gzM}月 {gzD}日', this.selectDay));
+        $('#detail-animal').html(this.renderObj('{animal} {astro}', this.selectDay));
+
+        let detailMessagesObj = $('#detail-messages');
+        detailMessagesObj.html('');
+        for (let i in hitDatas) {
+            detailMessagesObj.append(this.renderObj('<p>{msg}:{msgDetail}</p>', hitDatas[i]));
         }
     },
-    matchMessage: function (data, day, lDay) {
-        let yy = day.y;
-        let mm = day.m;
-        let dd = day.d;
-
-        // 如果是农历那就和农历比较
-        if (data.type === '农历') {
-            yy = lDay.ly;
-            mm = lDay.lm;
-            dd = lDay.ld;
-        }
-
+    matchMessage: function (data, day) {
+        let yy = data.isLunar ? day.ly : day.y;
+        let mm = data.isLunar ? day.lm : day.m;
+        let dd = data.isLunar ? day.ld : day.d;
         if (data.year !== '*' && data.year !== yy) {
             return false;
         }
@@ -170,6 +169,19 @@ Calender.prototype = {
         currentDay.month = nowDate.getMonth();
         currentDay.day = nowDate.getDate();
         return currentDay;
+    },
+    fillLunarDay: function (day) {
+        let lDay = calendar.solar2lunar(day.y, day.m, day.d);
+        day.ly = lDay.lYear;
+        day.lm = lDay.lMonth;
+        day.ld = lDay.lDay;
+        day.lmCn = lDay.IMonthCn;
+        day.ldCn = lDay.IDayCn;
+        day.gzY = lDay.gzYear;
+        day.gzM = lDay.gzMonth;
+        day.gzD = lDay.gzDay;
+        day.animal = lDay.Animal;
+        day.astro = lDay.astro;
     },
     //根据当前月，获取当前页需要显示的日期
     getDays: function (year, month) {
@@ -219,6 +231,10 @@ Calender.prototype = {
                 d: nextArr[i],
                 isCurrentMonth: false
             });
+        }
+
+        for (let i in days) {
+            _this.fillLunarDay(days[i]);
         }
         return days;
     },
@@ -278,16 +294,35 @@ Calender.prototype = {
             $(this).addClass('active');
 
             let day = {'y': $(this).data('y'), 'm': $(this).data('m'), 'd': $(this).data('d')};
-            let lDay = {'ly': $(this).data('ly'), 'lm': $(this).data('lm'), "ld": $(this).data('ld')};
-            _this.renderTips(day, lDay);
+            _this.fillLunarDay(day);
+            _this.selectDay = day;
+            _this.renderTips();
         });
+    },
+    renderObj: function (template, obj, customRenderCallback) {
+        var regex = /\{(.+?)\}/g;
+        var vars = template.match(regex);
+        if (vars) {
+            for (var i = 0, n = vars.length; i < n; i++) {
+                var attr = vars[i].replace('{', '').replace('}', '');
+                var attrs = attr.split('.');
+
+                var v = obj;
+                for (var j = 0, m = attrs.length; j < m; j++) {
+                    v = v[attrs[j]];
+                }
+                template = template.replace(vars[i], customRenderCallback ? customRenderCallback(vars[i], v) : v);
+            }
+        }
+        return template;
     }
-};
+}
+;
 
 $(function () {
     let calender = new Calender();
     calender.init();
 
-    console.log(calendar.lunar2solar(2022, 12, 22));
+    // console.log(calendar.lunar2solar(2022, 12, 22));
 });
 
