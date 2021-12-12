@@ -1,6 +1,7 @@
-# 从地址栏中获取参数
+# 常用工具
+从地址栏中获取参数
 ```
-var getParamFromUrl = function (name, defaultStr) {
+function getParamFromUrl(name, defaultStr) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
     var r = window.location.search.substr(1).match(reg);
     if (r != null) {
@@ -14,10 +15,9 @@ var getParamFromUrl = function (name, defaultStr) {
     }
 };
 ```
-
-# 根据html模型和js对象渲染
+结合模版和对象渲染
 ```
-var renderObj = function (template, obj, customRenderCallback) {
+function renderObj(template, obj, customRenderCallback) {
     var regex = /\{(.+?)\}/g;
     var vars = template.match(regex);
     if (vars) {
@@ -35,8 +35,9 @@ var renderObj = function (template, obj, customRenderCallback) {
     return template;
 };
 ```
+列表渲染
 ```
-var renderList = function (template, list, customRenderCallback) {
+function renderList(template, list, customRenderCallback) {
     if (!list) {
         return;
     }
@@ -47,24 +48,30 @@ var renderList = function (template, list, customRenderCallback) {
     return result;
 };
 ```
-
-# 中文地址栏编解码
+中文地址栏编码
 ```
-var encode = function (url) {
+function encode(url) {
     return encodeURIComponent(url);
 };
 ```
+中文地址栏解码
 ```
-var decode = function (url) {
+function decode(url) {
     return decodeURIComponent(url);
 };
 ```
-
-# 字符串是否包含另一个
+字符串是否包含另一个
 ```
-var isContain = function (str1, str2, ignoreCase) {
+function isContain(str1, str2, ignoreCase) {
     var s1 = ignoreCase ? str1.toLowerCase() : str1;
     var s2 = ignoreCase ? str2.toLowerCase() : str2;
     return s1.indexOf(s2) !== -1;
+}
+```
+# 日期工具
+判断是否是润年
+```
+function isLeapYear(year) {
+    return (year % 400 === 0) || (year % 100 !== 0 && year % 4 === 0);
 }
 ```
