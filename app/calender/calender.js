@@ -14,12 +14,6 @@ Calender.prototype = {
             _this.renderTips();
         });
     },
-    initCurrentDayToSelect: function () {
-        let currentDay = this.getCurrentDay();
-        let day = {'y': currentDay.year, 'm': currentDay.month, 'd': currentDay.day};
-        this.fillLunarDay(day)
-        this.selectDay = day;
-    },
     //判断是否是闰年。规则判断：能被400整除的，或者非100年且能被4整除的
     isLeapYear: function (year) {
         return (year % 400 === 0) || (year % 100 !== 0 && year % 4 === 0);
@@ -103,7 +97,10 @@ Calender.prototype = {
 
         //是否是今天匹配
         let currentDay = this.getCurrentDay();
-        if (currentDay.year === day.y && (currentDay.month + 1) === day.m && currentDay.day === day.d) {
+        if (currentDay.y === day.y && currentDay.m === day.m && currentDay.d === day.d) {
+            console.log(currentDay)
+            console.log(day.m)
+
             showObj.showDayText += "(今)";
             showObj.clazz = 'date-item-current';
         }
@@ -124,7 +121,7 @@ Calender.prototype = {
     },
     renderTips: function () {
         if (this.selectDay === undefined) {
-            this.initCurrentDayToSelect();
+            this.selectDay = this.getCurrentDay();
         }
 
         let hitDatas = [];
@@ -137,7 +134,7 @@ Calender.prototype = {
 
         $('#detail-date').html(this.renderObj('{y}-{m}-{d}', this.selectDay));
         $('#detail-day').html(this.selectDay.d);
-        $('#detail-ldate').html(this.renderObj('{lmCn}{ldCn}', this.selectDay));
+        $('#detail-ldate').html(this.renderObj('{lmCn}{ldCn}(农历{lm}月{ld})', this.selectDay));
         $('#detail-gzdate').html(this.renderObj('{gzY}年 {gzM}月 {gzD}日', this.selectDay));
         $('#detail-animal').html(this.renderObj('{animal} {astro}', this.selectDay));
 
@@ -165,9 +162,10 @@ Calender.prototype = {
     getCurrentDay: function () {
         let currentDay = {};
         let nowDate = new Date();
-        currentDay.year = nowDate.getFullYear();
-        currentDay.month = nowDate.getMonth();
-        currentDay.day = nowDate.getDate();
+        currentDay.y = nowDate.getFullYear();
+        currentDay.m = nowDate.getMonth() + 1;
+        currentDay.d = nowDate.getDate();
+        this.fillLunarDay(currentDay);
         return currentDay;
     },
     fillLunarDay: function (day) {
@@ -199,7 +197,6 @@ Calender.prototype = {
 
         //
         let days = [];
-
         let currentM = month + 1;
         let preM = currentM === 1 ? 12 : currentM - 1;
         let nextM = currentM === 12 ? 1 : currentM + 1;
@@ -232,7 +229,6 @@ Calender.prototype = {
                 isCurrentMonth: false
             });
         }
-
         for (let i in days) {
             _this.fillLunarDay(days[i]);
         }
@@ -322,7 +318,6 @@ Calender.prototype = {
 $(function () {
     let calender = new Calender();
     calender.init();
-
-    // console.log(calendar.lunar2solar(2022, 12, 22));
+    // console.log(calendar.solar2lunar(2021,12,12));
 });
 
