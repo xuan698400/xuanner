@@ -85,11 +85,10 @@ Calender.prototype = {
         document.getElementById('dateWrap').innerHTML = str;
     },
     renderDayItem: function (day) {
-        console.log(calendar.solar2lunar(day.y, day.m, day.d));
         let showDayText = day.d;
         let lunarDay = calendar.solar2lunar(day.y, day.m, day.d);
         let showDayDetailText = lunarDay.IDayCn;
-        let dataText = 'data-y={y} data-m={m} data-d={d}'.replace('{y}', day.y).replace('{m}', day.m).replace('{d}', day.d);
+        let dataText = 'data-y={y} data-m={m} data-d={d} data-ly={ly} data-lm={lm} data-ld={ld}'.replace('{y}', day.y).replace('{m}', day.m).replace('{d}', day.d).replace("{ly}", lunarDay.lYear).replace("{lm}", lunarDay.lMonth).replace("{ld}", lunarDay.lDay);
         let clazz = '';
 
         //是否非本月匹配
@@ -107,7 +106,8 @@ Calender.prototype = {
         //是否有提示匹配
         for (let i in this.datas) {
             let data = this.datas[i];
-            if (this.matchMessage(data, day)) {
+            let lDay = {"ly": lunarDay.lYear, "lm": lunarDay.lMonth, "ld": lunarDay.lDay};
+            if (this.matchMessage(data, day, lDay)) {
                 //有重要提示信息
                 showDayText = showDayText + '(' + data.msg + ')';
                 clazz = 'date-item-message';
@@ -118,12 +118,12 @@ Calender.prototype = {
 
         return template.replace('{clazz}', clazz).replace('{dataText}', dataText).replace('{showDayText}', showDayText).replace('{showDayDetailText}', showDayDetailText);
     },
-    renderTips: function (day) {
+    renderTips: function (day, lDay) {
         let datas = this.datas;
         let showMessages = [];
         for (let i in datas) {
             let data = datas[i];
-            if (this.matchMessage(data, day)) {
+            if (this.matchMessage(data, day, lDay)) {
                 showMessages.push(data.msg + ':' + data.msgDetail)
             }
         }
@@ -140,14 +140,25 @@ Calender.prototype = {
             $('.tipContent').html('');
         }
     },
-    matchMessage: function (data, day) {
-        if (data.year !== '*' && data.year !== day.y) {
+    matchMessage: function (data, day, lDay) {
+        let yy = day.y;
+        let mm = day.m;
+        let dd = day.d;
+
+        // 如果是农历那就和农历比较
+        if (data.type === '农历') {
+            yy = lDay.ly;
+            mm = lDay.lm;
+            dd = lDay.ld;
+        }
+
+        if (data.year !== '*' && data.year !== yy) {
             return false;
         }
-        if (data.month !== '*' && data.month !== day.m) {
+        if (data.month !== '*' && data.month !== mm) {
             return false;
         }
-        if (data.day !== '*' && data.day !== day.d) {
+        if (data.day !== '*' && data.day !== dd) {
             return false;
         }
         return true;
@@ -266,11 +277,9 @@ Calender.prototype = {
             $('.date-item').removeClass('active');
             $(this).addClass('active');
 
-            let day = {};
-            day.y = $(this).data('y');
-            day.m = $(this).data('m');
-            day.d = $(this).data('d');
-            _this.renderTips(day);
+            let day = {'y': $(this).data('y'), 'm': $(this).data('m'), 'd': $(this).data('d')};
+            let lDay = {'ly': $(this).data('ly'), 'lm': $(this).data('lm'), "ld": $(this).data('ld')};
+            _this.renderTips(day, lDay);
         });
     }
 };
@@ -278,5 +287,7 @@ Calender.prototype = {
 $(function () {
     let calender = new Calender();
     calender.init();
+
+    console.log(calendar.lunar2solar(2022, 12, 22));
 });
 

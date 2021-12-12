@@ -4,6 +4,55 @@
     "month": 5,
     "day": 31,
     "msg": "生日",
-    "msgDetail": "老妈生日"
+    "msgDetail": "老妈生日（出身日期：1961）",
+    "type": "阳历"
+  },
+  {
+    "year": "1988",
+    "month": 10,
+    "day": 15,
+    "msg": "生日",
+    "msgDetail": "老婆生日（出身年份：1988）",
+    "type": "农历"
+  },
+  {
+    "year": "*",
+    "month": 10,
+    "day": 15,
+    "msg": "纪念日",
+    "msgDetail": "结婚纪念日（结婚年份：2015）",
+    "type": "阳历"
+  },
+  {
+    "year": "*",
+    "month": 6,
+    "day": 27,
+    "msg": "生日",
+    "msgDetail": "丈母娘生日（出身年份：1961）",
+    "type": "农历"
+  },
+  {
+    "year": "*",
+    "month": 10,
+    "day": 25,
+    "msg": "生日",
+    "msgDetail": "懂事生日（出身年份：2016）",
+    "type": "阳历"
+  },
+  {
+    "year": "*",
+    "month": 12,
+    "day": 22,
+    "msg": "生日",
+    "msgDetail": "老丈人生日",
+    "type": "农历"
+  },
+  {
+    "year": "*",
+    "month": 8,
+    "day": 2,
+    "msg": "生日",
+    "msgDetail": "小姨子生日",
+    "type": "农历"
   }
 ]
