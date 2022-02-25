@@ -6,7 +6,7 @@
     "amount": "2000",
     "num": "1521",
     "remark": "",
-    "sign":""
+    "sign":"ing"
   },
   {
     "date": "2.22",
@@ -14,7 +14,7 @@
     "opType": "买入",
     "amount": "3893",
     "num": "3000",
-    "remark": "",
+    "remark": "已清出",
     "sign":"done-in"
   },
   {
@@ -32,7 +32,7 @@
     "opType": "买入",
     "amount": "2000",
     "num": "1555",
-    "remark": "",
+    "remark": "已清出",
     "sign":"done-in"
   },
   {
