@@ -1,0 +1,56 @@
+[
+  {
+    "date": "2.21",
+    "unitPrice": "1.3141",
+    "opType": "买入",
+    "amount": "2000",
+    "num": "1521",
+    "remark": "",
+    "sign":""
+  },
+  {
+    "date": "2.22",
+    "unitPrice": "1.2977",
+    "opType": "买入",
+    "amount": "3893",
+    "num": "3000",
+    "remark": "",
+    "sign":"done-in"
+  },
+  {
+    "date": "2.23",
+    "unitPrice": "1.3108",
+    "opType": "卖出",
+    "amount": "3932",
+    "num": "3000",
+    "remark": "(2.22买入-2.23卖出)赚39元",
+    "sign":"done-out"
+  },
+  {
+    "date": "2.24",
+    "unitPrice": "1.2856",
+    "opType": "买入",
+    "amount": "2000",
+    "num": "1555",
+    "remark": "",
+    "sign":"done-in"
+  },
+  {
+    "date": "2.25",
+    "unitPrice": "1.2974",
+    "opType": "买出",
+    "amount": "2017",
+    "num": "1555",
+    "remark": "(2.25买入-2.24卖出)赚17元",
+    "sign":"done-out"
+  },
+  {
+    "date": "合计",
+    "unitPrice": "/",
+    "opType": "/",
+    "amount": "/",
+    "num": "/",
+    "remark": "56元",
+    "sign":"done"
+  }
+]
