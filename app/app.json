@@ -8,5 +8,10 @@
     "pic": "app/calender/calender.png",
     "name": "我的日历",
     "openUrl": "app/calender/calender.html"
+  },
+  {
+    "pic": "app/jijin005918/jijin005918.html",
+    "name": "沪深300",
+    "openUrl": "app/jijin005918/jijin005918.html"
   }
 ]
