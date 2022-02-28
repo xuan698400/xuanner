@@ -38,11 +38,20 @@
   {
     "date": "2.25",
     "unitPrice": "1.2974",
-    "opType": "买出",
+    "opType": "卖出",
     "amount": "2017",
     "num": "1555",
     "remark": "(2.25买入-2.24卖出)赚17元",
     "sign":"done-out"
+  },
+  {
+    "date": "2.28",
+    "unitPrice": "1.2996",
+    "opType": "买入",
+    "amount": "2000",
+    "num": "1538",
+    "remark": "",
+    "sign":"ing"
   },
   {
     "date": "合计",
