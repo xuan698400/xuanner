@@ -72,6 +72,15 @@
     "sign": "ing"
   },
   {
+    "date": "3.3",
+    "unitPrice": "1.2915",
+    "opType": "做多",
+    "amount": "2000",
+    "num": "1548",
+    "remark": "",
+    "sign": "ing"
+  },
+  {
     "date": "合计",
     "unitPrice": "/",
     "opType": "/",
