@@ -54,15 +54,6 @@
     "sign": "ing"
   },
   {
-    "date": "3.1",
-    "unitPrice": "1.3097",
-    "opType": "-",
-    "amount": "-",
-    "num": "-",
-    "remark": "-",
-    "sign": "ing"
-  },
-  {
     "date": "3.2",
     "unitPrice": "1.2987",
     "opType": "做多",
@@ -77,6 +68,42 @@
     "opType": "做多",
     "amount": "2000",
     "num": "1548",
+    "remark": "",
+    "sign": "ing"
+  },
+  {
+    "date": "3.4",
+    "unitPrice": "1.2764",
+    "opType": "做多",
+    "amount": "4000",
+    "num": "3133",
+    "remark": "平均成本：1.2931",
+    "sign": "ing"
+  },
+  {
+    "date": "3.8",
+    "unitPrice": "1.2146",
+    "opType": "做多",
+    "amount": "2000",
+    "num": "1646",
+    "remark": "平均成本：1.2813",
+    "sign": "ing"
+  },
+  {
+    "date": "3.9",
+    "unitPrice": "1.2041",
+    "opType": "做多",
+    "amount": "2000",
+    "num": "1660",
+    "remark": "",
+    "sign": "ing"
+  },
+  {
+    "date": "3.17",
+    "unitPrice": "1.2075",
+    "opType": "做空",
+    "amount": "4829",
+    "num": "4000",
     "remark": "",
     "sign": "ing"
   },
