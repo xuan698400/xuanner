@@ -11,38 +11,20 @@
   {
     "date": "2.22",
     "unitPrice": "1.2977",
-    "opType": "做多",
+    "opType": "做多（已完结）",
     "amount": "3893",
     "num": "3000",
-    "remark": "已清出",
+    "remark": "2.23(1.3108)(3932-3893)=39元",
     "sign": "done-in"
-  },
-  {
-    "date": "2.23",
-    "unitPrice": "1.3108",
-    "opType": "做多清出",
-    "amount": "3932",
-    "num": "3000",
-    "remark": "(2.22买入-2.23卖出)赚39元",
-    "sign": "done-out"
   },
   {
     "date": "2.24",
     "unitPrice": "1.2856",
-    "opType": "做多",
+    "opType": "做多（已完结）",
     "amount": "2000",
     "num": "1555",
-    "remark": "已清出",
+    "remark": "2.25(1.2974)(2017-2000)=17元",
     "sign": "done-in"
-  },
-  {
-    "date": "2.25",
-    "unitPrice": "1.2974",
-    "opType": "做多清出",
-    "amount": "2017",
-    "num": "1555",
-    "remark": "(2.25买入-2.24卖出)赚17元",
-    "sign": "done-out"
   },
   {
     "date": "2.28",
@@ -77,7 +59,7 @@
     "opType": "做多",
     "amount": "4000",
     "num": "3133",
-    "remark": "平均成本：1.2931",
+    "remark": "",
     "sign": "ing"
   },
   {
@@ -86,7 +68,7 @@
     "opType": "做多",
     "amount": "2000",
     "num": "1646",
-    "remark": "平均成本：1.2813",
+    "remark": "",
     "sign": "ing"
   },
   {
