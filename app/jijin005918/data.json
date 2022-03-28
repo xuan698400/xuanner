@@ -90,6 +90,15 @@
     "sign": "ing"
   },
   {
+    "date": "3.25",
+    "unitPrice": "1.1906",
+    "opType": "做多",
+    "amount": "4000",
+    "num": "3359",
+    "remark": "",
+    "sign": "ing"
+  },
+  {
     "date": "合计",
     "unitPrice": "/",
     "opType": "/",
