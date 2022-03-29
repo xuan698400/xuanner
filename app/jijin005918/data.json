@@ -86,8 +86,8 @@
     "opType": "做空",
     "amount": "4829",
     "num": "4000",
-    "remark": "",
-    "sign": "ing"
+    "remark": "3.28(1.1835)(4080-4000)=80份",
+    "sign": "done-out"
   },
   {
     "date": "3.25",
