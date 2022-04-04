@@ -99,6 +99,24 @@
     "sign": "done-in"
   },
   {
+    "date": "3.31",
+    "unitPrice": "1.2034",
+    "opType": "做空",
+    "amount": "2406",
+    "num": "2000",
+    "remark": "",
+    "sign": "out"
+  },
+  {
+    "date": "4.1",
+    "unitPrice": "1.2180",
+    "opType": "做空",
+    "amount": "2436",
+    "num": "2000",
+    "remark": "",
+    "sign": "out"
+  },
+  {
     "date": "合计",
     "unitPrice": "/",
     "opType": "/",
