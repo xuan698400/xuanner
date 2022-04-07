@@ -113,8 +113,17 @@
     "opType": "做空",
     "amount": "2436",
     "num": "2000",
+    "remark": "4.7(1.1996)(2030-2000)=30份",
+    "sign": "done-out"
+  },
+  {
+    "date": "4.7",
+    "unitPrice": "1.1996",
+    "opType": "做多",
+    "amount": "2000",
+    "num": "1667",
     "remark": "",
-    "sign": "out"
+    "sign": "in"
   },
   {
     "date": "合计",
