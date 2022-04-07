@@ -5,26 +5,38 @@
     "opType": "做多",
     "amount": "2000",
     "num": "1521",
-    "remark": "",
-    "sign": "ing"
+    "date2": "",
+    "unitPrice2": "",
+    "amount2": "",
+    "num2": "",
+    "date3": "",
+    "unitPrice3": ""
   },
   {
     "date": "2.22",
     "unitPrice": "1.2977",
-    "opType": "做多（已完结）",
+    "opType": "做多",
     "amount": "3893",
     "num": "3000",
-    "remark": "2.23(1.3108)(3932-3893)=39元",
-    "sign": "done-in"
+    "date2": "2.23",
+    "unitPrice2": "1.3108",
+    "amount2": "3932",
+    "num2": "3000",
+    "date3": "",
+    "unitPrice3": ""
   },
   {
     "date": "2.24",
     "unitPrice": "1.2856",
-    "opType": "做多（已完结）",
+    "opType": "做多",
     "amount": "2000",
     "num": "1555",
-    "remark": "2.25(1.2974)(2017-2000)=17元",
-    "sign": "done-in"
+    "date2": "2.25",
+    "unitPrice2": "1.2974",
+    "amount2": "2017",
+    "num2": "1555",
+    "date3": "",
+    "unitPrice3": ""
   },
   {
     "date": "2.28",
@@ -32,8 +44,12 @@
     "opType": "做多",
     "amount": "2000",
     "num": "1538",
-    "remark": "",
-    "sign": "ing"
+    "date2": "",
+    "unitPrice2": "",
+    "amount2": "",
+    "num2": "",
+    "date3": "",
+    "unitPrice3": ""
   },
   {
     "date": "3.2",
@@ -41,8 +57,12 @@
     "opType": "做多",
     "amount": "2000",
     "num": "1540",
-    "remark": "",
-    "sign": "ing"
+    "date2": "",
+    "unitPrice2": "",
+    "amount2": "",
+    "num2": "",
+    "date3": "",
+    "unitPrice3": ""
   },
   {
     "date": "3.3",
@@ -50,8 +70,12 @@
     "opType": "做多",
     "amount": "2000",
     "num": "1548",
-    "remark": "",
-    "sign": "ing"
+    "date2": "",
+    "unitPrice2": "",
+    "amount2": "",
+    "num2": "",
+    "date3": "",
+    "unitPrice3": ""
   },
   {
     "date": "3.4",
@@ -59,8 +83,12 @@
     "opType": "做多",
     "amount": "4000",
     "num": "3133",
-    "remark": "",
-    "sign": "ing"
+    "date2": "",
+    "unitPrice2": "",
+    "amount2": "",
+    "num2": "",
+    "date3": "",
+    "unitPrice3": ""
   },
   {
     "date": "3.8",
@@ -68,35 +96,51 @@
     "opType": "做多",
     "amount": "2000",
     "num": "1646",
-    "remark": "",
-    "sign": "ing"
+    "date2": "",
+    "unitPrice2": "",
+    "amount2": "",
+    "num2": "",
+    "date3": "",
+    "unitPrice3": ""
   },
   {
     "date": "3.9",
     "unitPrice": "1.2041",
-    "opType": "做多（已完结）",
+    "opType": "做多",
     "amount": "2000",
     "num": "1660",
-    "remark": "3.24(1.2124)(2012-2000)=12元",
-    "sign": "done-in"
+    "date2": "3.24",
+    "unitPrice2": "1.2124",
+    "amount2": "2012",
+    "num2": "1660",
+    "date3": "",
+    "unitPrice3": ""
   },
   {
     "date": "3.17",
     "unitPrice": "1.2075",
-    "opType": "做空（已完结）",
+    "opType": "做空",
     "amount": "4829",
     "num": "4000",
-    "remark": "3.28(1.1835)(4080-4000)=80份（3.30卖出1.2120）=96元",
-    "sign": "done-out"
+    "date2": "3.28",
+    "unitPrice2": "1.1835",
+    "amount2": "4829",
+    "num2": "4080",
+    "date3": "3.30",
+    "unitPrice3": "1.2120"
   },
   {
     "date": "3.25",
     "unitPrice": "1.1906",
-    "opType": "做多（已完结）",
+    "opType": "做多",
     "amount": "4000",
     "num": "3359",
-    "remark": "3.30(1.2120)(4071-4000)=71元",
-    "sign": "done-in"
+    "date2": "3.30",
+    "unitPrice2": "1.2120",
+    "amount2": "4071",
+    "num2": "3359",
+    "date3": "",
+    "unitPrice3": ""
   },
   {
     "date": "3.31",
@@ -104,8 +148,12 @@
     "opType": "做空",
     "amount": "2406",
     "num": "2000",
-    "remark": "",
-    "sign": "out"
+    "date2": "",
+    "unitPrice2": "",
+    "amount2": "",
+    "num2": "",
+    "date3": "",
+    "unitPrice3": ""
   },
   {
     "date": "4.1",
@@ -113,8 +161,12 @@
     "opType": "做空",
     "amount": "2436",
     "num": "2000",
-    "remark": "4.7(1.1996)(2030-2000)=30份",
-    "sign": "done-out"
+    "date2": "4.7",
+    "unitPrice2": "1.1996",
+    "amount2": "2436",
+    "num2": "2030",
+    "date3": "",
+    "unitPrice3": ""
   },
   {
     "date": "4.7",
@@ -122,16 +174,24 @@
     "opType": "做多",
     "amount": "2000",
     "num": "1667",
-    "remark": "",
-    "sign": "in"
+    "date2": "",
+    "unitPrice2": "",
+    "amount2": "",
+    "num2": "",
+    "date3": "",
+    "unitPrice3": ""
   },
   {
-    "date": "合计",
-    "unitPrice": "/",
-    "opType": "/",
-    "amount": "/",
-    "num": "/",
-    "remark": "",
-    "sign": "done"
+    "opType": "合计",
+    "date": "",
+    "unitPrice": "",
+    "amount": "",
+    "num": "",
+    "date2": "",
+    "unitPrice2": "",
+    "amount2": "",
+    "num2": "",
+    "date3": "",
+    "unitPrice3": ""
   }
 ]
