@@ -22,6 +22,8 @@ JiJin.prototype = {
                     if ('做多' === data.opType) {
                         remark = (data.amount2 - data.amount) + '元';
                         total = total + parseInt(data.amount2 - data.amount);
+                        data.date3 = '/';
+                        data.unitPrice3 = '/';
                     }
                     if ('做空' === data.opType && '' !== data.date3) {
                         remark = parseInt((data.num2 - data.num) * data.unitPrice3) + '元（' + (data.num2 - data.num) + '份）';
@@ -35,8 +37,6 @@ JiJin.prototype = {
 
                 //样式
                 var sign = 'ing';
-                console.log('' !== data.remark);
-                console.log('做多' === data.opType);
                 if ('' !== data.remark && '做多（已完结）' === data.opType) {
                     sign = 'done-in';
                 }
@@ -47,10 +47,10 @@ JiJin.prototype = {
             }
 
             //合计
-            for (var i = 0, n = _this.renderDatas.length; i < n; i++) {
-                var data = _this.renderDatas[i];
-                if ('合计' === data.opType) {
-                    data.remark = total + "元";
+            for (var j = 0, m = _this.renderDatas.length; j < m; j++) {
+                var d = _this.renderDatas[j];
+                if ('合计' === d.opType) {
+                    d.remark = total + "元";
                 }
             }
 

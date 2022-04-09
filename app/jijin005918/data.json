@@ -165,8 +165,8 @@
     "unitPrice2": "1.1996",
     "amount2": "2436",
     "num2": "2030",
-    "date3": "",
-    "unitPrice3": ""
+    "date3": "4.8",
+    "unitPrice3": "1.2057"
   },
   {
     "date": "4.7",
@@ -174,12 +174,12 @@
     "opType": "做多",
     "amount": "2000",
     "num": "1667",
-    "date2": "",
-    "unitPrice2": "",
-    "amount2": "",
-    "num2": "",
-    "date3": "",
-    "unitPrice3": ""
+    "date2": "4.8",
+    "unitPrice2": "1.2057",
+    "amount2": "2009",
+    "num2": "1667",
+    "date3": "/",
+    "unitPrice3": "/"
   },
   {
     "opType": "合计",
