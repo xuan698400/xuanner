@@ -213,12 +213,12 @@
     "unitPrice": "1.1951",
     "amount": "2390",
     "num": "2000",
-    "date2": "",
-    "unitPrice2": "",
-    "amount2": "",
-    "num2": "",
-    "date3": "/",
-    "unitPrice3": "/"
+    "date2": "4.18",
+    "unitPrice2": "1.1882",
+    "amount2": "2390",
+    "num2": "2011",
+    "date3": "",
+    "unitPrice3": ""
   },
   {
     "opType": "合计",
