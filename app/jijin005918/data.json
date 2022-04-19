@@ -200,12 +200,12 @@
     "unitPrice": "1.1810",
     "amount": "2362",
     "num": "2000",
-    "date2": "",
-    "unitPrice2": "",
-    "amount2": "",
-    "num2": "",
-    "date3": "/",
-    "unitPrice3": "/"
+    "date2": "4.19",
+    "unitPrice2": "1.1798",
+    "amount2": "2362",
+    "num2": "2002",
+    "date3": "",
+    "unitPrice3": ""
   },
   {
     "opType": "做空",
@@ -217,8 +217,8 @@
     "unitPrice2": "1.1882",
     "amount2": "2390",
     "num2": "2011",
-    "date3": "",
-    "unitPrice3": ""
+    "date3": "4.19",
+    "unitPrice3": "1.1798"
   },
   {
     "opType": "合计",
