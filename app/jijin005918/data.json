@@ -204,8 +204,8 @@
     "unitPrice2": "1.1798",
     "amount2": "2362",
     "num2": "2002",
-    "date3": "",
-    "unitPrice3": ""
+    "date3": "4.20",
+    "unitPrice3": "1.1627"
   },
   {
     "opType": "做空",
@@ -219,6 +219,32 @@
     "num2": "2011",
     "date3": "4.19",
     "unitPrice3": "1.1798"
+  },
+  {
+    "opType": "做多",
+    "date": "4.20",
+    "unitPrice": "1.1627",
+    "amount": "6000",
+    "num": "6976",
+    "date2": "",
+    "unitPrice2": "",
+    "amount2": "",
+    "num2": "",
+    "date3": "",
+    "unitPrice3": ""
+  },
+  {
+    "opType": "做空",
+    "date": "4.29",
+    "unitPrice": "1.1469",
+    "amount": "4587",
+    "num": "4000",
+    "date2": "",
+    "unitPrice2": "",
+    "amount2": "",
+    "num2": "",
+    "date3": "",
+    "unitPrice3": ""
   },
   {
     "opType": "合计",
