@@ -239,12 +239,12 @@
     "unitPrice": "1.1469",
     "amount": "4587",
     "num": "4000",
-    "date2": "",
-    "unitPrice2": "",
-    "amount2": "",
-    "num2": "",
-    "date3": "",
-    "unitPrice3": ""
+    "date2": "5.6",
+    "unitPrice2": "1.1185",
+    "amount2": "4587",
+    "num2": "4101",
+    "date3": "5.9",
+    "unitPrice3": "1.1101"
   },
   {
     "opType": "做空",
@@ -252,6 +252,19 @@
     "unitPrice": "1.1460",
     "amount": "4584",
     "num": "4000",
+    "date2": "5.9",
+    "unitPrice2": "1.1101",
+    "amount2": "4584",
+    "num2": "4129",
+    "date3": "",
+    "unitPrice3": ""
+  },
+  {
+    "opType": "做多",
+    "date": "5.6",
+    "unitPrice": "1.1185",
+    "amount": "2000",
+    "num": "1788",
     "date2": "",
     "unitPrice2": "",
     "amount2": "",
