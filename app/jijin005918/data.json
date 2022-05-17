@@ -286,6 +286,19 @@
     "unitPrice3": ""
   },
   {
+    "opType": "做空",
+    "date": "5.13",
+    "unitPrice": "1.1402",
+    "amount": "4560",
+    "num": "4000",
+    "date2": "",
+    "unitPrice2": "",
+    "amount2": "",
+    "num2": "",
+    "date3": "",
+    "unitPrice3": ""
+  },
+  {
     "opType": "合计",
     "date": "",
     "unitPrice": "",
