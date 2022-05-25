@@ -1,5 +1,4 @@
-# Hello Wolrd
-## 创建项目
+# 1. Hello Wolrd
 创建文件夹chrome_test_v3，里面放入名为manifest.json的文件，文件内容如下：
 ```
 {
@@ -24,7 +23,7 @@
 </html>
 ```
 
-## 安装项目
+# 2. 安装项目
 打开chrome的扩展程序，开启开发者模式，选择未解压安装
 <img src="data/article/content/Chrome插件开发V3/images/pic1.png" width="300" />
 
