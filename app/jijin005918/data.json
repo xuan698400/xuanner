@@ -310,19 +310,33 @@
     "num2": "",
     "date3": "",
     "unitPrice3": ""
-  },{
-  "opType": "做空",
-  "date": "5.20",
-  "unitPrice": "1.1645",
-  "amount": "2329",
-  "num": "2000",
-  "date2": "5.24",
-  "unitPrice2": "1.1324",
-  "amount2": "2329",
-  "num2": "2056",
-  "date3": "5.25",
-  "unitPrice3": "1.1389"
-},
+  },
+  {
+    "opType": "做空",
+    "date": "5.20",
+    "unitPrice": "1.1645",
+    "amount": "2329",
+    "num": "2000",
+    "date2": "5.24",
+    "unitPrice2": "1.1324",
+    "amount2": "2329",
+    "num2": "2056",
+    "date3": "5.25",
+    "unitPrice3": "1.1389"
+  },
+  {
+    "opType": "做空",
+    "date": "5.31",
+    "unitPrice": "1.1696",
+    "amount": "4678",
+    "num": "4000",
+    "date2": "",
+    "unitPrice2": "",
+    "amount2": "",
+    "num2": "",
+    "date3": "",
+    "unitPrice3": ""
+  },
   {
     "opType": "合计",
     "date": "",
