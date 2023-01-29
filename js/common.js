@@ -47,3 +47,54 @@ BW.encode = function (url) {
 BW.decode = function (url) {
     return decodeURIComponent(url);
 };
+
+/**
+ * 字符串数组，用逗号拼接
+ *
+ * @param array
+ * @returns {string}
+ */
+BW.joinArray = function (array) {
+    var str = '';
+    for (var i = 0, n = array.length; i < n; i++) {
+        if (i > 0) {
+            str += ',';
+        }
+        str += array[i];
+    }
+    return str;
+};
+
+/**
+ * 从数组array删除needDeleteItem元素
+ *
+ * @param needDeleteItem
+ * @param array
+ * @returns {Array}
+ */
+BW.removeItemFromArray = function (deleteItem, array) {
+    var newArray = [];
+    for (var i in array) {
+        var item = array[i];
+        if (deleteItem !== item) {
+            newArray.push(item);
+        }
+    }
+    return newArray;
+};
+
+/**
+ * 判断matchItem是否在数组array中
+ *
+ * @param matchItem
+ * @param array
+ * @returns {boolean}
+ */
+BW.isItemInArray = function (matchItem, array) {
+    for (var i in array) {
+        if (matchItem === array[i]) {
+            return true;
+        }
+    }
+    return false;
+};
